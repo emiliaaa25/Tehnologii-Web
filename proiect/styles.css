@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.sectiune-1, .sectiune-2 {
+    padding: 0; 
+    margin: 0;
+    width: 100%;
+}
+.section-1 {background-color: rgb(180, 166, 83);
+    height: 10vh;}
+.section-2 {background-color:black;
+    height: 90vh;}
+
+hr {color: rgb(213, 194, 84); }
+p {
+    border: 2px solid powderblue;
+    margin: 50px;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+
+
+  .button-group {
+    display: flex;
+    justify-content: flex-end;
+
+}
+  
+ .button {
+    background-color: rgb(9, 8, 5);
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 16px;
+    margin: 10px 10px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+ .button:hover {opacity: 1}
