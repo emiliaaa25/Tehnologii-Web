@@ -1,49 +1,68 @@
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-.sectiune-1, .sectiune-2 {
-    padding: 0; 
-    margin: 0;
-    width: 100%;
+.section-1, .section-2 {
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
-.section-1 {background-color: rgb(180, 166, 83);
-    height: 10vh;}
-.section-2 {background-color:black;
-    height: 90vh;}
 
-hr {color: rgb(213, 194, 84); }
-p {
-    border: 2px solid powderblue;
-    margin: 50px;
-  }
-
-  .grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto;
-  }
-
-
-  .button-group {
-    display: flex;
-    justify-content: flex-end;
-
+.section-1 {
+  background-color: rgb(180, 166, 83);
+  height: 10vh;
+  display: flex;
+  justify-content: flex-end; /* Aliniază butoanele la începutul secțiunii */
+  align-items: center; /* Aliniem elementele vertical în centrul secțiunii */
 }
-  
- .button {
-    background-color: rgb(9, 8, 5);
-    border: none;
-    color: white;
-    padding: 15px 30px;
-    text-align: center;
-    font-size: 16px;
-    margin: 10px 10px;
-    opacity: 0.6;
-    transition: 0.3s;
-    display: inline-block;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
- .button:hover {opacity: 1}
+
+.section-2 {
+  background-color: black;
+  height: 90vh;
+}
+
+.button-group {
+  display: flex;
+  align-items: center; /* Aliniem butoanele vertical în centrul secțiunii */
+}
+
+.button {
+  background-color: rgb(9, 8, 5);
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 16px;
+  margin: 0 10px;
+  opacity: 0.6;
+  transition: 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 1;
+}
+
+.search-container {
+  position: relative; 
+  margin-left: 10px;
+}
+
+.search-container input[type=text] {
+  background-color: rgb(93, 80, 41);
+  padding: 15px 30px 15px 30px;
+  border: none;
+  font-size: 16px;
+}
+
+.search-container button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute; 
+  right: 10px; 
+  top: 50%; 
+  transform: translateY(-50%); 
+}
