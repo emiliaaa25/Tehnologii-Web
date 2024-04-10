@@ -1,0 +1,1 @@
+In HomePage2 e sidebar ul. Doar ca am mai facut niste modificari in HomePage1(gen ala facut de tn) si nu mai stau butoanele bine.Ma genadeam ca paote extindem pagina mai mult da nus daca mai e o idee buna :))
