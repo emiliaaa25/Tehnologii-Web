@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img{
+  margin: 0;
+  width: 25vw;
+  height: 25vw;
+}
+
+.actors{
+  margin: 0;
+}
+
+.section-1,
+.section-2 {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  font-size: 4vw;
+}
+
+.section-1 {
+  background-color: rgb(180, 166, 83);
+  height: 10vh;
+  display: flex;
+  justify-content: flex-end; /* Aliniază butoanele la începutul secțiunii */
+  align-items: center; /* Aliniem elementele vertical în centrul secțiunii */
+}
+
+.section-2 {
+  background-color: black;
+  height:auto;
+}
+
+.button-group {
+  display: flex;
+  align-items: center; /* Aliniem butoanele vertical în centrul secțiunii */
+}
+
+.button {
+  background-color: rgb(9, 8, 5);
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 16px;
+  margin: 0 10px;
+  opacity: 0.6;
+  transition: 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 1;
+}
+
+.search-container {
+  position: relative;
+  margin-left: 10px;
+}
+
+.search-container input[type="text"] {
+  background-color: rgb(93, 80, 41);
+  padding: 15px 30px 15px 30px;
+  border: none;
+  font-size: 16px;
+}
+
+.search-container button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+a:link,
+a:visited {
+  color: white;
+  display: inline-block;
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  color: white;
+  text-decoration: none;
+}
