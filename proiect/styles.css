@@ -1,84 +1,100 @@
 body {
   margin: 0;
   padding: 0;
+  display: grid;
 background-color: black;}
 
 .search-bar{
-    position: fixed;
-    margin: 0;
-    border: 0;
-    right: 0;
-    height: 100%;
-    width: 180px;
-    z-index: 1;
-    background-color: rgb(180, 166, 83);
-    padding-top:25dvh;
+  position: fixed;
+  align-content: left;
+  margin: 0;
+  border: 0;
+  right: 0;
+  height: 100%;
+  width: 180px;
+  z-index: 1;
+  background-color: rgb(180, 166, 83);
+  padding-top:15dvh;
 
 }
 
 button.search-barr{
-  
-  width: 100%;
-  height: 15%;
-  text-align: center;
-  margin: 0;
-  border: 0;
-  text-decoration: none;
-  z-index: 0;
-  position: static;
-  /*height: ;*/
-  cursor: pointer;
-  transition: 0.3s;
-  background-color: rgb(180, 166, 83);
-  color: antiquewhite;
-  font-size: large;
+width: 100%;
+height: 15%;
+text-align: center;
+margin: 0;
+border: 0;
+text-decoration: none;
+z-index: 0;
+position: static;
+cursor: pointer;
+transition: 0.3s;
+background-color: rgb(180, 166, 83);
+color: antiquewhite;
+font-size: large;
 }
 
 button.search-barr:hover{
-  background-color: rgb(150, 136, 53);
+background-color: rgb(150, 136, 53);
 }
 
 .section-1, .section-2 {
-  padding: 0;
-  margin: 0;
-  width: 100%;
+padding: 0;
+margin: 0;
+width: 100%;
 }
 
 .section-1 {
-  height: 10vh;
-  display: flex;
-  justify-content: flex-end; 
-  align-items: center;
-  background-color: rgb(180, 166, 83); 
+height: 10vh;
+display: flex;
+justify-content: flex-end; 
+align-items: center;
+background-color: rgb(180, 166, 83); 
+background-image: linear-gradient(to bottom right, rgb(100,80,0), rgb(180, 166, 83));
 
 }
 
 .section-2 {
-  height: 100dvh;
-  background-color: black; 
+height: 90dvh;
+background-color: black; 
 }
 
+
+
 .section-3{
-  background-color: antiquewhite;
-  /*display: grid;
-  //grid-template-columns: 1fr 1fr;*/
+background-color: rgb(180, 166, 83);
+height: 80dvh;
+display: grid;
+grid-template-columns: 1fr 1fr;
 }
 
 .section-3 img{
-  right:0;
+width: 100%;
+height: 80dvh;
 }
 
-.section-3 h4 p{ 
-  border: 15px  black;
+.scris-section3{
+font-family: monospace;
+display: grid;
+grid-template-rows: 1fr 1fr 1fr 1fr;
+color: white;
 }
 
-.section-3 em{
-  border: 15px black;
+.scris-section3 h4{
+text-shadow: 2px 2px 5px rgb(100, 86, 3);
+text-align: center;
+border: 10px black;
+
 }
 
 .button-group {
   display: flex;
   align-items: center;
+}
+
+.button-group a{
+  text-decoration: none;
+  color: white;
 }
 
 .button {
@@ -128,9 +144,6 @@ button.search-barr:hover{
 }
 
 .slideshow-frame img {
-  padding: 20px;
-  border: 2px solid rgb(180, 166, 83);
-  box-shadow: 0 0 10px rgb(180, 166, 83);
   max-width: 100%;
   max-height: 90vh; 
   vertical-align: middle; 
@@ -186,8 +199,7 @@ footer{
   bottom: 0px;
 }
 
-.footer-icon{
-  margin: 50px;
-  border-right:5px;
-  border-color: antiquewhite;
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
 }
