@@ -75,15 +75,7 @@ The users can:
 At the moment, the users of the system are regular users who don't need an account. They have access to all mentioned functionalities.
 ### 2.4 Operating Environment
 The application is designed to run on both PC and mobile devices. It requires an internet connection to access the web pages and retrieve data. The supported operating systems include Windows, macOS, iOS, and Android. The application is compatible with popular web browsers such as Chrome, Firefox, Safari, and Edge. It is recommended to have the latest version of the web browser installed for optimal performance and compatibility.
-### 2.5 Design and Implementation Constraints
-NU
-Describe any items or issues that will limit the options available to the developers. These might include: corporate or regulatory policies; hardware limitations (timing requirements, memory requirements); interfaces to other applications; specific technologies, tools, and databases to be used; parallel operations; language requirements; communications protocols; security considerations; design conventions or programming standards (for example, if the customer’s organization will be responsible for maintaining the delivered software).
-### 2.6 User Documentation
-NU
-List the user documentation components (such as user manuals, on-line help, and tutorials) that will be delivered along with the software. Identify any known user documentation delivery formats or standards.
-### 2.7 Assumptions and Dependencies
-NU
-List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third-party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan).
+
 ## External Interface Requirements
 ### 3.1 User Interfaces
 Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Define the software components for which a user interface is needed. Details of the user interface design should be documented in a separate user interface specification.
