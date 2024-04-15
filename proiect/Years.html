@@ -11,6 +11,12 @@
         <link rel="icon" type="image/x-icon" href="icon.jpg">
     </head>
     <body><!--tarile unde au fost nominalizarile / tabel ani/nominalizari/nominallizatul ales + tabele pe ani + ;-->
+        <div class="search-bar" id="searchBar">
+            <button class="dissmis" onclick="toggleSearchBar()"><img src="arrow.png" alt=""></button>
+            <button class="search-barr"><a  href="HomePage1.html">Home Page</a></button>
+            <button class="search-barr"><a href="Actori.html">Actors</a></button>
+            <button class="search-barr"><a href="Years.html">Years</a></button>
+        </div>
         <div class="section-1">
             <div class="button-group">
                 <div class="search-container">
@@ -24,20 +30,26 @@
                 <button class="button"><a href="HomePage.html">Home Page</a></button>
                 <button class="button"><a href="Actori.html">Actors</a></button>
                 <button class="button"><a href="Years.html"><strong>Years</strong></a></button>
-                <a href="HomePage2.html"> <button class="button">ceva</button></a>
+                <button class="button border" onclick="toggleSearchBar()"><img src="3arrows.jpg" alt=""></button>
               </div>
         </div>
         <div class="ani-section1">
             <h1>WINNERS</h1>
             <div class="ani-poze-sec1">
-                <a href="Year.html"><img src="aw2023.png"></a>
-                <img src="aw2022.png"/>
-                <img src="aw2021.png"/>
-                <img src="aw2020.png"/>
+                <a href="Year.html"><img src="aw2023.png"/></a>
+                <a href="Year.html"><img src="aw2022.png"/></a>
+                <a href="Year.html"><img src="aw2021.png"/></a>
+                <a href="Year.html"><img src="aw2020.png"/></a>
             </div>
         </div>
         <div class="footer">
             <img class="footer-icon" src="icon.jpg" />
         </div>
+        <script>
+            function toggleSearchBar() {
+              var searchBar = document.getElementById("searchBar");
+              searchBar.classList.toggle("show");
+            }
+            </script>
     </body>
 </html>
