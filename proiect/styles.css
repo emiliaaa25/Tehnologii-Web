@@ -406,4 +406,9 @@ header{
     margin-bottom: 30px;
     margin-right: 35px;
   }
+  .actor img{
+    width: 60vw;
+    height: 60vw;
+    margin: 130px;
+  }
 }
