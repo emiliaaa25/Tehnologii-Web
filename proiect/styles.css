@@ -397,4 +397,13 @@ header{
     margin-right: 10px;
   }
 
+  .button img{
+    width: 25px;
+    height: auto;
+  }
+
+  .border{
+    margin-bottom: 30px;
+    margin-right: 35px;
+  }
 }
