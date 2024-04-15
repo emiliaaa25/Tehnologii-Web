@@ -22,9 +22,11 @@ Prepared by <author>
     5. [Design and Implementation Constraints](#25-design-and-implementation-constraints)
     6. [User Documentation](#26-user-documentation)
     7. [Assumptions and Dependencies](#27-assumptions-and-dependencies)
-4. [System Features](#4-system-features)
+3. [System Features](#3-system-features)
     1. [Viewing the Latest Awards & Nominees in the Film Industry](#89-viewing-the-latest-awards--nominees-in-the-film-industry)
-    2. [Searching & Viewing an actor's page & info](#116searching--viewing-an-actors-page--info)
+    2. [Searching & Viewing an actor's page & info](#91searching--viewing-an-actors-page--info)
+    3. [Viewing Awards and Winners for a Specific Year](#116searching--viewing-an-actors-page--info)
+
 
 
 
