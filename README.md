@@ -4,6 +4,7 @@ IEEE System Requirements Specification Template
 # Software Requirements Specification
 ## For  Actors Smart Visualiser
 Prepared by Galatanu Emilia and Popoiu Andra
+
 Universitatea Alexandru Ioan Cuza Facultatea de Informatica
 ## Table of Contents
 1. [Introduction](#1-introduction)
