@@ -1,7 +1,7 @@
 ## Revision History
 | Name | Date    | Reason For Changes  | Version   |
 | ---- | ------- | ------------------- | --------- |
-| AI Assistant | Today's Date | Initial creation | 1.0 |
+| WEB Project | 15.04.2024 | Initial creation | 1.0 |
 
 ## 1. Introduction
 ### 1.1 Purpose 
