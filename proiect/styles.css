@@ -111,7 +111,6 @@ border: 10px black;
 
 .button-group {
   display: flex;
-  align-items: right;
   margin-right: 0px;
 }
 
