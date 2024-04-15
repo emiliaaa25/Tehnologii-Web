@@ -12,6 +12,12 @@
     </head>
 <body>
 <header>
+    <div class="search-bar" id="searchBar">
+        <button class="dissmis" onclick="toggleSearchBar()"><img src="arrow.png" alt=""></button>
+        <button class="button" onclick="window.location.href='HomePage1.html'">Home Page</button>
+        <button class="button" onclick="window.location.href='Actori.html'">Actors</button>
+        <button class="button" onclick="window.location.href='Years.html'"><strong>Years</strong></button>
+    </div>
     <div class="section-1">
         <div class="button-group">
             <div class="search-container">
@@ -22,10 +28,11 @@
                     </button>
                   </form>
               </div>    
-            <button class="button"><a href="HomePage.html">Home Page</a></button>
-            <button class="button"><a href="Actori.html">Actors</a></button>
-            <button class="button"><a href="Years.html"><strong>Years</strong></a></button>
-            <button class="button">ceva</button>
+            
+              <button class="button" onclick="window.location.href='HomePage1.html'">Home Page</button>
+              <button class="button" onclick="window.location.href='Actori.html'">Actors</button>
+              <button class="button" onclick="window.location.href='Years.html'"><strong>Years</strong></button>
+              <button class="button border" onclick="toggleSearchBar()"><img src="3arrows.jpg" alt=""></button>
           </div>
     </div>
 
@@ -40,18 +47,24 @@
             </div>
             <div>
                 <h3>WINNERS FROM YEAR 2023</h3>
-                <a href="Actor.html"><img src="aw2023-best_actor_of_the_year.png"/></a>
-                <img src="aw2023-best_actress_of_the_year.png"/>
-                <img src="aw2023-best_duo_of_the_year.png"/>
-                <img src="aw2023-special_jury_award.png" />
-                <img src="aw2023-outstanding-performance.png" />
-                <img src="aw2023-breakthrough_duo_of_the_year.png" />
+                <a href="Actor.html"><img src="aw2023-best_actor_of_the_year.png" alt=""></a>
+                <img src="aw2023-best_actress_of_the_year.png" alt="">
+                <img src="aw2023-best_duo_of_the_year.png" alt="">
+                <img src="aw2023-special_jury_award.png" alt="">
+                <img src="aw2023-outstanding-performance.png" alt="">
+                <img src="aw2023-breakthrough_duo_of_the_year.png" alt="">
             </div>
         </div>
     </div>
 
     <div class="footer">
     </div>
+    <script>
+        function toggleSearchBar() {
+          var searchBar = document.getElementById("searchBar");
+          searchBar.classList.toggle("show");
+        }
+        </script>
     
 </header>
 </body>
