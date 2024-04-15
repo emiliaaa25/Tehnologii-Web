@@ -6,10 +6,16 @@
 
         <meta charset="UTF-8">
         <title>
-            Home Page
+            Actors
         </title>
         <link rel="icon" type="image/x-icon" href="icon.jpg">
     </head>
+    <div class="search-bar" id="searchBar">
+      <button class="dissmis" onclick="toggleSearchBar()"><img src="arrow.png" alt=""></button>
+      <a  href="HomePage1.html"><button class="search-barr">Home Page</button></a>
+      <a href="Actori.html"><button class="search-barr">Actors</button></a>
+      <a href="Years.html"><button class="search-barr">Years</button></a>
+  </div>
     <body><!--tarile unde au fost nominalizarile / tabel ani/nominalizari/nominallizatul ales + tabele pe ani + ;-->
         <div class="section-1">
             <div class="button-group">
@@ -21,10 +27,10 @@
                         </button>
                       </form>
                   </div>            
-                <button class="button"><a href="HomePage.html">Home Page</a></button>
-                <button class="button"><a href="Actori.html">Actors</a></button>
-                <button class="button"><a href="Years.html"><strong>Years</strong></a></button>
-                <a href="HomePage2.html"> <button class="button">ceva</button></a>
+                <button class="button"><a href="HomePage1.html">Home Page</a></button>
+                <button class="button"><a href="Actori.html"><strong>Actors</strong></a></button>
+                <button class="button"><a href="Years.html">Years</a></button>
+                <button class="button border" onclick="toggleSearchBar()"><img src="3arrows.jpg" alt=""></button>
               </div>
         </div>
         <div class="actors">
@@ -105,5 +111,11 @@
         <div class="footer">
             <img class="footer-icon" src="icon.jpg" />
         </div>
+        <script>
+          function toggleSearchBar() {
+            var searchBar = document.getElementById("searchBar");
+            searchBar.classList.toggle("show");
+          }
+          </script>
     </body>
 </html>
