@@ -1,17 +1,23 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
     <head>
 
         <link rel="stylesheet" href="styles.css">
 
         <meta charset="UTF-8">
         <title>
-            Home Page
+            Actor's Page
         </title>
         <link rel="icon" type="image/x-icon" href="icon.jpg">
     </head>
 <body>
 <header>
+    <div class="search-bar" id="searchBar">
+        <button class="dissmis" onclick="toggleSearchBar()"><img src="arrow.png" alt=""></button>
+        <button onclick="window.location.href='HomePage1.html'" class="search-barr">Home Page</button>
+        <button onclick="window.location.href='Actori.html'" class="search-barr">Actors</button>
+        <button onclick="window.location.href='Years.html'" class="search-barr">Years</button>
+      </div>
     <div class="section-1">
         <div class="button-group">
             <div class="search-container">
@@ -22,14 +28,14 @@
                     </button>
                   </form>
               </div>            
-            <button class="button"><a href="HomePage.html">Home Page</a></button>
-            <button class="button"><a href="Actori.html"><strong>Actors</strong></a></button>
-            <button class="button"><a href="Years.html">Years</a></button>
-            <button class="button">ceva</button>
+              <button class="button" onclick="window.location.href='HomePage1.html'">Home Page</button>
+              <button class="button" onclick="window.location.href='Actori.html'">Actors</button>
+              <button class="button" onclick="window.location.href='Years.html'">Years</button>
+            <button class="button border" onclick="toggleSearchBar()"><img src="3arrows.jpg" alt=""></button>
           </div>
     </div>
     <div class="actor">
-        <img src="aw2023.png"/>
+        <img src="aw2023.png" alt="aw2023">
         <div>
             <p style="font-size: 25px;"><strong>Speach from the actor</strong></p>
             <p> Thank you. It's my honor to say a few words briefly on behalf of this incredible cast on this stage
@@ -50,5 +56,11 @@
         </div> 
     </div>
 </header>
+<script>
+    function toggleSearchBar() {
+      var searchBar = document.getElementById("searchBar");
+      searchBar.classList.toggle("show");
+    }
+    </script>
 </body>
 </html>

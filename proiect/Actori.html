@@ -10,13 +10,13 @@
         </title>
         <link rel="icon" type="image/x-icon" href="icon.jpg">
     </head>
-    <div class="search-bar" id="searchBar">
-      <button class="dissmis" onclick="toggleSearchBar()"><img src="arrow.png" alt=""></button>
-      <a  href="HomePage1.html"><button class="search-barr">Home Page</button></a>
-      <a href="Actori.html"><button class="search-barr">Actors</button></a>
-      <a href="Years.html"><button class="search-barr">Years</button></a>
-  </div>
     <body><!--tarile unde au fost nominalizarile / tabel ani/nominalizari/nominallizatul ales + tabele pe ani + ;-->
+      <div class="search-bar" id="searchBar">
+        <button class="dissmis" onclick="toggleSearchBar()"><img src="arrow.png" alt=""></button>
+        <button onclick="window.location.href='HomePage1.html'" class="search-barr">Home Page</button>
+        <button onclick="window.location.href='Actori.html'" class="search-barr">Home Page</button>
+        <button onclick="window.location.href='Years.html'" class="search-barr">Home Page</button>
+      </div>
         <div class="section-1">
             <div class="button-group">
                 <div class="search-container">
@@ -27,21 +27,21 @@
                         </button>
                       </form>
                   </div>            
-                  <a href="HomePage1.html"><button class="button">Home Page</button></a>
-                  <a href="Actori.html"><button class="button"><strong>Actors</strong></button></a>
-                  <a href="Year.html"><button class="button">Years</button></a>
+                  <button class="button" onclick="window.location.href='HomePage1.html'">Home Page</button>
+                  <button class="button" onclick="window.location.href='Actori.html'"><strong>Actors</strong></button>
+                  <button class="button" onclick="window.location.href='Years.html'">Years</button>
                 <button class="button border" onclick="toggleSearchBar()"><img src="3arrows.jpg" alt=""></button>
               </div>
         </div>
         <div class="actors">
           <p>MOST SEARCHED</p>
           <div>
-            <img src="aw2023-best_actor_of_the_year.png"/>
-            <img src="aw2023-best_actress_of_the_year.png"/>
-            <img src="aw2023-best_duo_of_the_year.png"/>
-            <img src="aw2023-special_jury_award.png" />
-            <img src="aw2023-outstanding-performance.png" />
-            <img src="aw2023-breakthrough_duo_of_the_year.png" />
+            <img src="aw2023-best_actor_of_the_year.png" alt="best_actor_of_the_year">
+            <img src="aw2023-best_actress_of_the_year.png" alt="best_actress_of_the_year">
+            <img src="aw2023-best_duo_of_the_year.png" alt="best_duo_of_the_year">
+            <img src="aw2023-special_jury_award.png" alt="special_jury_award">
+            <img src="aw2023-outstanding-performance.png" alt="outstanding-performance">
+            <img src="aw2023-breakthrough_duo_of_the_year.png" alt="breakthrough_duo_of_the_year">
           </div>
           <div>
             <a href="#A">A</a>
@@ -74,8 +74,8 @@
           <div style="color: white; text-align: left;">
             <h2 id="A">A</h2>
               <p> 
-                <a href="Actor.html"><img src="pozica.png" title="Andrei Aradits"></img></a>
-                <img src="jennifer.png" title="Jennifer Aniston"/>
+                <a href="Actor.html"><img src="pozica.png" title="Andrei Aradits" alt="Picture with Andrei Aradits"></a>
+                <img src="jennifer.png" title="Jennifer Aniston" alt="Picture with Jennifer Aniston">
               </p>
             <h2 id="B">B</h2>
             <h2 id="C">C</h2>
@@ -109,7 +109,6 @@
         </div>
         
         <div class="footer">
-            <img class="footer-icon" src="icon.jpg" />
         </div>
         <script>
           function toggleSearchBar() {
