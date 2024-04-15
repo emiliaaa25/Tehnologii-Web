@@ -46,7 +46,7 @@ Provide a short description of the software being specified and its purpose, inc
 ### 1.5 References
 List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.
 
-## Overall Description
+## 2. Overall Description
 ### 2.1 Product Perspective
 
 The software described in this document comprises a set of interconnected web pages designed to create a cohersie user experience for a multimedia entertainment platform. These web pages include:
@@ -69,7 +69,7 @@ At the moment, the users of the system are regular users who don't need an accou
 ### 2.4 Operating Environment
 The application is designed to run on both PC and mobile devices. It requires an internet connection to access the web pages and retrieve data. The supported operating systems include Windows, macOS, iOS, and Android. The application is compatible with popular web browsers such as Chrome, Firefox, Safari, and Edge. It is recommended to have the latest version of the web browser installed for optimal performance and compatibility.
 
-## 3 System Features
+## 3. System Features
 ### 3.1 Viewing the Latest Awards & Nominees in the Film Industry
 3.1.1 Description and Priority
 This feature allows users to view the latest awards and nominees in the film industry. It is of high priority as it provides up-to-date information to users.
