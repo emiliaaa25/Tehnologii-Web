@@ -13,16 +13,15 @@ Prepared by <author>
     2. [Document Conventions](#12-document-conventions)
     3. [Intended Audience and Reading Suggestions](#13-intended-audience-and-reading-suggestions)
     4. [Product Scope](#14-product-scope)
-    5. [References](#15-references)
-2. [Overall Description](#50-overall-description)
-    1. [Product Perspective](#51-product-perspective)
-    2. [Product Functions](#61-product-functions)
-    3. [User Classes and Characteristics](#68-user-classes-and-characteristics)
-    4. [Operating Environment](#70-operating-environment)
-3. [System Features](#73-system-features)
-    1. [Viewing the Latest Awards & Nominees in the Film Industry](#74-viewing-the-latest-awards--nominees-in-the-film-industry)
-    2. [Searching & Viewing an actor's page & info](#88searching-&-viewing-an-actors-page-&-info)
-    3. [Viewing Awards and Winners for a Specific Year](#115-viewing-awards-and-winners-for-a-specific-year)
+2. [Overall Description](#2-overall-description)
+    1. [Product Perspective](#21-product-perspective)
+    2. [Product Functions](#22-product-functions)
+    3. [User Classes and Characteristics](#23-user-classes-and-characteristics)
+    4. [Operating Environment](#24-operating-environment)
+3. [System Features](#3-system-features)
+    1. [Viewing the Latest Awards & Nominees in the Film Industry](#31-viewing-the-latest-awards--nominees-in-the-film-industry)
+    2. [Searching & Viewing an actor's page & info](#32searching-&-viewing-an-actors-page-&-info)
+    3. [Viewing Awards and Winners for a Specific Year](#33-viewing-awards-and-winners-for-a-specific-year)
 
 
 
@@ -70,7 +69,7 @@ At the moment, the users of the system are regular users who don't need an accou
 ### 2.4 Operating Environment
 The application is designed to run on both PC and mobile devices. It requires an internet connection to access the web pages and retrieve data. The supported operating systems include Windows, macOS, iOS, and Android. The application is compatible with popular web browsers such as Chrome, Firefox, Safari, and Edge. It is recommended to have the latest version of the web browser installed for optimal performance and compatibility.
 
-## System Features
+## 3 System Features
 ### 3.1 Viewing the Latest Awards & Nominees in the Film Industry
 3.1.1 Description and Priority
 This feature allows users to view the latest awards and nominees in the film industry. It is of high priority as it provides up-to-date information to users.
