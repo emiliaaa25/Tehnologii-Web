@@ -68,8 +68,8 @@ width: 100%;
 
 .section-1 {
 height: 10vh;
-display: flex;
-justify-content: flex-end; 
+display: grid;
+grid-template-columns: 1fr 1fr;
 align-items: center;
 background-color: rgb(180, 166, 83); 
 background-image: linear-gradient(to bottom right, rgb(100,80,0), rgb(180, 166, 83));
@@ -111,7 +111,8 @@ border: 10px black;
 
 .button-group {
   display: flex;
-  align-items: center;
+  align-items: right;
+  margin-right: 0px;
 }
 
 .button-group a{
@@ -125,7 +126,7 @@ border: 10px black;
   color: white;
   padding: 15px 30px;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   margin: 0 10px;
   opacity: 0.6;
   transition: 0.3s;
@@ -218,6 +219,12 @@ border: 10px black;
   .text {font-size: 11px}
 }
 
+.title{
+  margin-left: 10px;
+  font-size: 30px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
 
 header{
   margin-bottom: 60px;
