@@ -31,7 +31,7 @@ position: static;
 cursor: pointer;
 transition: 0.3s;
 background-color: rgb(180, 166, 83);
-color: antiquewhite;
+color: black;
 font-size: large;
 }
 
@@ -42,7 +42,25 @@ background-color: rgb(150, 136, 53);
 .search-bar.show{
   right: 0;
 }
+.dissmis {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
 
+.dissmis img {
+  width: 35px;
+  height: auto;
+  margin-left: 70px;
+
+}
+
+.dismiss:hover,
+.dismiss:focus {
+  background: #555;
+  color: #fff;
+}
 .section-1, .section-2 {
 padding: 0;
 margin: 0;
@@ -114,6 +132,13 @@ border: 10px black;
   transition: 0.3s;
   text-decoration: none;
   cursor: pointer;
+}
+.button img{
+  width: 25px;
+  height: auto;
+}
+.border{
+  padding: 5px 25px;
 }
 
 .button:hover {
