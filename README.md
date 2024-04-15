@@ -24,8 +24,8 @@ Prepared by <author>
     7. [Assumptions and Dependencies](#27-assumptions-and-dependencies)
 3. [System Features](#3-system-features)
     1. [Viewing the Latest Awards & Nominees in the Film Industry](#89-viewing-the-latest-awards--nominees-in-the-film-industry)
-    2. [Searching & Viewing an actor's page & info](#91searching--viewing-an-actors-page--info)
-    3. [Viewing Awards and Winners for a Specific Year](#116searching--viewing-an-actors-page--info)
+    2. [Searching & Viewing an actor's page & info](#91searching-&-viewing-an-actors-page-&-info)
+    3. [Viewing Awards and Winners for a Specific Year](#116-viewing-awards-and-winners-for-a-specific-year)
 
 
 
@@ -38,7 +38,7 @@ Prepared by <author>
 |      |         |                     |           |
 
 ## 1. Introduction
-### 1.1 Scop 
+### 1.1 Scope 
 The platform aims to provide users with access to a rich collection of information regarding nominations and awards given to actors and films from various years. The fundamental goal is to create a centralized and easily accessible resource for users, enabling them to explore and analyze the evolution and performance of actors and films.
 
 ### 1.2 Document Conventions
