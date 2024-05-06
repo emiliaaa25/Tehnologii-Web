@@ -359,6 +359,92 @@ header{
 }
 
 
+.login-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+
+    background-color: rgb(180, 166, 83);
+    background-image: linear-gradient(to bottom, rgb(0,0,0), rgb(180, 166, 83));
+    height: 83vh;
+  
+}
+
+.register-elements{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(180, 166, 83);
+  
+  box-shadow: 0 0 10px rgb(180, 166, 83);
+  height: 600px;
+  width: 400px;
+    background-color: rgb(0,0,0);
+
+}
+
+.login-elements{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(180, 166, 83);
+  
+  box-shadow: 0 0 10px rgb(180, 166, 83);
+  height: 500px;
+  width: 400px;
+  
+
+    background-color: rgb(0,0,0);
+}
+
+input[type="username"], input[type="password"], input[type="password-reveal"], input[type="firstname"], input[type="lastname"], input[type="email"]{
+  width: 300px;
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid rgb(180, 166, 83);
+  background-color: rgb(93, 80, 41);
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgb(180, 166, 83);
+}
+
+button[type="submit-login"]{
+  align-items: center;
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid rgb(180, 166, 83);
+  background-color: black;
+  color: rgb(180, 166, 83);
+  box-shadow: 0 0 10px rgb(180, 166, 83);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form a{
+  color: rgb(130, 116, 33);
+  text-decoration: none;
+  align-items: right;
+}
+
+form h2{
+  color: rgb(180, 166, 83);
+  font-size: 35px;
+}
+
 @media screen and (max-width: 900px) {
   .actor{
     display: grid;
