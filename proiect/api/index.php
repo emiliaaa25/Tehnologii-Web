@@ -1,5 +1,9 @@
 <?php
 // index.php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Content-Type: application/json");
 
 $request_uri = $_SERVER['REQUEST_URI'];
 $uri_parts = explode('?', $request_uri);
@@ -12,6 +16,9 @@ $routes = [
     '/proiect/api/names' => ['controller' => 'ActorController', 'action' => 'getAllActorsNames'],
     '/proiect/api/years' => ['controller' => 'YearController', 'action' => 'getAllYears'],
     '/proiect/api/specificYear' => ['controller' => 'YearController', 'action' => 'getAllFromSpecificYear', 'params' => ['year']],
+    '/proiect/api/actors/details' => ['controller' => 'ActorController', 'action' => 'getActorDetails', 'params' => ['name']],
+    '/proiect/api/movie' => ['controller' => 'MovieController', 'action' => 'getMovieDetails', 'params' => ['name']],
+    '/proiect/api/movieName' => ['controller' => 'MovieController', 'action' => 'getMovieByName', 'params' => ['name']],
 
 
     // alte rute

@@ -19,6 +19,15 @@ class ActorController {
         }
     }
 
+    public function getActorDetails($params) {
+        if (isset($params['name']) && !empty($params['name']) && is_string($params['name'])) {
+            $name = $params['name'];
+            $actorModel = new ActorModel();
+        $actors = $actorModel->getActorDetailsFromTmdb($name);
+        return json_encode($actors);
+        }
+    }
+
 
     public function getAllActorsNames() {
         $actorModel = new ActorModel();

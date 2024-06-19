@@ -10,4 +10,23 @@ class MovieController {
         return json_encode($movies);
     }
 
+    public function getMovieByName($params) {
+        if (isset($params['name']) && !empty($params['name']) && is_string($params['name'])) {
+            $name = $params['name'];
+            $movieModel = new MovieModel();
+            $movie = $movieModel->getMovieByName($name);
+        return json_encode($movie);
+        }
+    }
+    public function getMovieDetails($params) {
+        if (isset($params['name']) && !empty($params['name']) && is_string($params['name'])) {
+            $name = $params['name'];
+            $movieModel = new MovieModel();
+            $movieDetails = $movieModel->getMovieDetailsFromTmdb($name);
+            return json_encode($movieDetails);
+
+           
+    }
+}
+
 }
