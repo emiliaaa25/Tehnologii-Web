@@ -10,11 +10,15 @@ class ActorController {
         return json_encode($actors);
     }
 
-    public function getActorByName($name) {
-        $actorModel = new ActorModel();
-        $actor = $actorModel->getActorByName($name);
-        return json_encode($actor);
+    public function getActorByName($params) {
+        if (isset($params['name']) && !empty($params['name']) && is_string($params['name'])) {
+            $name = $params['name'];
+            $actorModel = new ActorModel();
+        $actors = $actorModel->getActorByName($name);
+        return json_encode($actors);
+        }
     }
+
 
     public function getAllActorsNames() {
         $actorModel = new ActorModel();

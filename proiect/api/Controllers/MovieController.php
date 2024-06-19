@@ -1,7 +1,7 @@
 <?php
 // controllers/MoviesController.php
 
-require_once('../Entity/MovieModel.php');
+require_once('D:\OneDrive\Documente\GitHub\Tehnologii-Web\proiect\api\Entity\MovieModel.php');
 
 class MovieController {
     public function getAllMovies() {
