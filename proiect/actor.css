@@ -79,10 +79,7 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgb(180, 166, 83);
     overflow-x: auto; /* Activăm scrollbar-ul orizontal */
-
 }
-
-
 
 .known-for .movies-container {
     display: flex;
@@ -90,7 +87,6 @@
     white-space: nowrap; /* Prevenim ruperea la rând */
     overflow-x: auto; /* Activăm scrollbar-ul orizontal */
     padding-bottom: 15px; /* Spațiu sub container */
-
 }
 
 .known-for .movie-item {
@@ -98,30 +94,104 @@
     text-align: center;
     display: flex; /* Afișăm elementele într-o coloană */
     flex-direction: column; /* Colocăm imaginea și textul într-o coloană */
-    align-items: center; /
-   
-}
-.movie-item p {
-    margin: 0; /* Eliminăm marginile implicite ale paragrafului */
-}
-.movie-item img {
-    width: 150px;
-    height: 200px;
-    border-radius: 8px;
-}
-.known-for .movies-container::-webkit-scrollbar {
-    width: 10px; 
+    align-items: center;
+    width: 150px; /* Ajustăm lățimea pentru a se potrivi cu imaginea */
 }
 
-.known-for .movies-container::-webkit-scrollbar-thumb {
+.known-for .movie-item p {
+    margin: 0; /* Eliminăm marginile implicite ale paragrafului */
+    padding-top: 10px; /* Adăugăm puțin spațiu între imagine și text */
+    color: rgb(150, 136, 53); /* Setăm culoarea textului */
+    white-space: normal; /* Permitem textului să fie pe mai multe rânduri */
+}
+
+.known-for .movie-item img {
+    width: 150px; /* Asigurăm că imaginea are aceeași lățime ca și containerul */
+    height: 200px; /* Setăm înălțimea imaginii */
+    border-radius: 8px;
+}
+
+.movies-container::-webkit-scrollbar {
+    height: 12px;
+}
+
+.movies-container::-webkit-scrollbar-track {
     background-color: rgba(0, 0, 0, 0.3); 
     border-radius: 10px; 
 }
 
-.known-for .movies-container::-webkit-scrollbar-track {
-    background-color: rgba(255, 255, 255, 0.1); 
+
+.movies-container::-webkit-scrollbar-thumb {
+    background: rgb(180, 166, 83);
+    border-radius: 6px;
 }
 
+.movies-container::-webkit-scrollbar-thumb:hover {
+    background: rgb(150, 136, 53);
+}
+
+.filmography {
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: black;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgb(180, 166, 83);
+    ;
+}
+
+.filter-options {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.filter-options select {
+    margin: 0 10px;
+    padding: 10px;
+    border: 1px solid rgb(180, 166, 83);
+    border-radius: 4px;
+    background-color: rgb(180, 166, 83);
+}
+
+.filmography-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+}
+
+.filmography-item {
+    flex: 0 0 auto;
+    width: 150px;
+    text-align: center;
+    color: rgb(180, 166, 83);
+}
+
+.filmography-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Custom scrollbar */
+.filmography-container::-webkit-scrollbar {
+    height: 12px;
+}
+
+.filmography-container::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.3); 
+    border-radius: 10px; 
+}
+
+
+.filmography-container::-webkit-scrollbar-thumb {
+    background: rgb(180, 166, 83);
+    border-radius: 6px;
+}
+
+.filmography-container::-webkit-scrollbar-thumb:hover {
+    background: rgb(150, 136, 53);
+}
 @media (min-width: 900px) {
     .actor {
         flex-direction: row;

@@ -64,9 +64,12 @@ class ActorModel {
             $detailsResponse = $this->getDetails($detailsUrl);
     
             if (isset($detailsResponse['id'])) {
-                // Obține filmele în care a jucat actorul
+                // Obține filmele în care a jucat actorul (known_for)
                 $creditsUrl = "https://api.themoviedb.org/3/person/{$actorId}/combined_credits?language=en-US";
                 $creditsResponse = $this->getDetails($creditsUrl);
+                // Obține toate creditele (filmografia completă)
+                $filmographyUrl = "https://api.themoviedb.org/3/person/{$actorId}/combined_credits?language=en-US";
+                $filmographyResponse = $this->getDetails($filmographyUrl);
     
                 // Initialize an empty array to store actor details
                 $actorDetails = [
@@ -76,25 +79,39 @@ class ActorModel {
                     'place_of_birth' => $detailsResponse['place_of_birth'],
                     'gender' => $detailsResponse['gender'] == 1 ? 'Female' : 'Male',
                     'profile_path' => isset($detailsResponse['profile_path']) ? 'https://image.tmdb.org/t/p/w500' . $detailsResponse['profile_path'] : null,
-                    'known_for' => []
+                    'known_for' => [],
+                    'filmography' => []
                 ];
     
-                // Check if creditsResponse has 'cast' key and it is an array
+                // Process known_for
                 if (isset($creditsResponse['cast']) && is_array($creditsResponse['cast'])) {
-                    // Map through each movie in cast
                     foreach ($creditsResponse['cast'] as $movie) {
-                        // Define default values if keys are not set
-                        $title = isset($movie['title']) ? $movie['title'] : (isset($movie['original_title']) ? $movie['original_title'] : 'Unknown Title');
-                        $overview = isset($movie['overview']) ? $movie['overview'] : '';
-                        $releaseDate = isset($movie['release_date']) ? $movie['release_date'] : 'Unknown Release Date';
+                        $title = isset($movie['title']) ? $movie['title'] : (isset($movie['original_name']) ? $movie['original_name'] : 'Unknown Title');
                         $posterPath = isset($movie['poster_path']) ? 'https://image.tmdb.org/t/p/w500' . $movie['poster_path'] : null;
+                        $popularity = isset($movie['popularity']) ? $movie['popularity'] : null;
+                        
+                                $actorDetails['known_for'][] = [
+                                'title' => $title,
+                                'overview' => isset($movie['overview']) ? $movie['overview'] : '',
+                                'poster_path' => $posterPath,
+                                'popularity' => $popularity
+                            ];
+                    
+                }
+            }
     
-                        // Add movie details to known_for array
-                        $actorDetails['known_for'][] = [
+                if (isset($filmographyResponse['cast']) && is_array($filmographyResponse['cast'])) {
+                    foreach ($filmographyResponse['cast'] as $movie) {
+                        $title = isset($movie['title']) ? $movie['title'] : (isset($movie['original_name']) ? $movie['original_name'] : 'Unknown Title');
+                        $releaseDate = isset($movie['release_date']) ? $movie['release_date'] : (isset($movie['first_air_date']) ? $movie['first_air_date'] : 'Unknown Release Date');
+                        $posterPath = isset($movie['poster_path']) ? 'https://image.tmdb.org/t/p/w500' . $movie['poster_path'] : null;
+                        $type = isset($movie['media_type']) ? $movie['media_type'] : 'yes';
+                        $actorDetails['filmography'][] = [
                             'title' => $title,
-                            'overview' => $overview,
                             'release_date' => $releaseDate,
-                            'poster_path' => $posterPath
+                            'media_type' => $type,
+                            'poster_path' => $posterPath,
+
                         ];
                     }
                 }

@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(data => {
                 displayActorDetails(data);
+                displayKnownFor(data);
+                displayFilmography(data);
             })
             .catch(error => {
                 console.error('Error fetching actor details:', error);
@@ -20,39 +22,67 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         document.getElementById('actor-details').innerHTML = '<p>No actor specified.</p>';
     }
+
+    document.getElementById('production-type').addEventListener('change', filterFilmography);
 });
 
 function displayActorDetails(data) {
-    const actorDetailsDiv = document.getElementById('actor-details');
+    const actor = data.actor;
+    document.getElementById('actor-img').src = actor.profile_path;
+    document.getElementById('actor-name').innerText = actor.name;
+    document.getElementById('actor-biography').innerText = actor.biography;
+    document.getElementById('actor-birthday').innerText = actor.birthday;
+    document.getElementById('actor-place-of-birth').innerText = actor.place_of_birth;
+    document.getElementById('actor-gender').innerText = actor.gender;
 
-    if (data.status === 'success' && data.actor) {
-        const actor = data.actor;
-        const knownForMovies = actor.known_for.slice(0, 10).map(movie => `
-            <div class="movie-item">
-                <img src="${movie.poster_path}" alt="${movie.title} Poster">
-                <p>${movie.title}</p>
-            </div>
-        `).join('');
-
-        document.getElementById('actor-img').src = actor.profile_path;
-        document.getElementById('actor-name').innerText = actor.name;
-        document.getElementById('actor-biography').innerText = actor.biography;
-        document.getElementById('actor-birthday').innerText = actor.birthday;
-        document.getElementById('actor-place-of-birth').innerText = actor.place_of_birth;
-        document.getElementById('actor-gender').innerText = actor.gender;
-        document.getElementById('known-for-movies').innerHTML = knownForMovies;
-
-        // Show the "Show More" button only if the biography is longer than the restricted height
-        const biographyElement = document.getElementById('actor-biography');
-        if (biographyElement.scrollHeight > biographyElement.clientHeight) {
-            document.getElementById('show-more-btn').style.display = 'block';
-        } else {
-            document.getElementById('show-more-btn').style.display = 'none';
-        }
+    const biographyElement = document.getElementById('actor-biography');
+    if (biographyElement.scrollHeight > biographyElement.clientHeight) {
+        document.getElementById('show-more-btn').style.display = 'block';
     } else {
-        actorDetailsDiv.innerHTML = '<p>Actor not found.</p>';
+        document.getElementById('show-more-btn').style.display = 'none';
     }
 }
+
+function displayKnownFor(data) {
+    const actor = data.actor;
+    const knownForContainer = document.getElementById('known-for-movies');
+    knownForContainer.innerHTML = '';
+
+    actor.known_for
+        .filter(movie => movie.popularity !== null )
+        .sort((a, b) => b.popularity - a.popularity)
+        .slice(0, 10)
+        .forEach(movie => {
+            const movieItem = document.createElement('div');
+            movieItem.className = 'movie-item';
+            movieItem.innerHTML = `
+                <img src="${movie.poster_path}" alt="${movie.title} Poster">
+                <p>${movie.title}</p>
+            `;
+            knownForContainer.appendChild(movieItem);
+        });
+}
+
+function displayFilmography(data) {
+    const actor = data.actor;
+    if (actor && actor.filmography) {
+        const filmographyContainer = document.getElementById('filmography-container');
+        filmographyContainer.innerHTML = '';
+        actor.filmography.forEach(item => {
+            const filmographyItem = document.createElement('div');
+            filmographyItem.className = 'filmography-item';
+            filmographyItem.setAttribute('data-media-type', item.media_type); // ajustare pentru a corespunde cu API-ul
+            filmographyItem.innerHTML = `
+                <img src="${item.poster_path}" alt="${item.title} Poster">
+                <p>${item.title}</p>
+            `;
+            filmographyContainer.appendChild(filmographyItem);
+        });
+    } else {
+        console.error('Actor or filmography data is undefined or empty:', actor);
+    }
+}
+
 
 function toggleBiography() {
     const biographyElement = document.getElementById('actor-biography');
@@ -63,4 +93,23 @@ function toggleBiography() {
     } else {
         btn.textContent = 'Show More';
     }
+}
+
+function filterFilmography() {
+    const productionType = document.getElementById('production-type').value;
+
+    console.log('Production Type:', productionType);
+
+    const items = document.querySelectorAll('.filmography-item');
+    items.forEach(item => {
+        const matchesProductionType = productionType === 'all' || item.dataset.mediaType === productionType;
+
+        console.log('Item Media Type:', item.dataset.mediaType);
+
+        if (matchesProductionType) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
 }

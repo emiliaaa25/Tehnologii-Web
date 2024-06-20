@@ -38,11 +38,9 @@
         <div class="actor-image">
             <img id="actor-img" src="" alt="Actor Photo">
             <div class="personal-info">
-                <p><strong>Known for:</strong> <span id="known-for"></span></p>
                 <p><strong>Birthday:</strong> <span id="actor-birthday"></span></p>
                 <p><strong>Place of Birth:</strong> <span id="actor-place-of-birth"></span></p>
                 <p><strong>Gender:</strong> <span id="actor-gender"></span></p>
-
             </div>
         </div>
         <div class="actor-info">
@@ -52,10 +50,24 @@
                 <button id="show-more-btn" onclick="toggleBiography()">Show More</button>
             </div>
             <div class="known-for">
-                    <h3>Known For</h3>
-                    <div id="known-for-movies" class="movies-container">
-                        <!-- Movies will be injected here by JavaScript -->
+                <h3>Known For</h3>
+                <div id="known-for-movies" class="movies-container">
+                    <!-- Movies will be injected here by JavaScript -->
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="filmography">
+        <div class="filter-options">
+            <select id="production-type" onchange="filterFilmography()">
+                <option value="all">All</option>
+                <option value="movie">Movies</option>
+                <option value="tv">TV Shows</option>
+            </select>
+        </div>
+        <div class="filmography-list">
+            <div id="filmography-container" class="filmography-container">
+                <!-- Filmography will be injected here by JavaScript -->
             </div>
         </div>
     </div>
