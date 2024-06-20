@@ -52,30 +52,62 @@ class ActorModel {
     }
 
     public function getActorDetailsFromTmdb($name) {
+        // Obține ID-ul actorului
         $url = "https://api.themoviedb.org/3/search/person?query=" . urlencode($name) . "&include_adult=false&language=en-US";
         $response = $this->getDetails($url);
-
+        
         if (isset($response['results']) && count($response['results']) > 0) {
-            $actor = $response['results'][0];
-            $actorDetails = [
-                'name' => $actor['name'],
-                'known_for' => array_map(function($movie) {
-                    return [
-                        'title' => $movie['title'] ?? $movie['original_title'],
-                        'overview' => $movie['overview'],
-                        'release_date' => $movie['release_date'],
-                        'poster_path' => 'https://image.tmdb.org/t/p/w500' . $movie['poster_path']
-                    ];
-                }, $actor['known_for']),
-                'profile_path' => 'https://image.tmdb.org/t/p/w500' . $actor['profile_path']
-            ];
-            return ['status' => 'success', 'actor' => $actorDetails];
+            $actorId = $response['results'][0]['id'];
+            
+            // Obține detaliile complete ale actorului
+            $detailsUrl = "https://api.themoviedb.org/3/person/{$actorId}?language=en-US";
+            $detailsResponse = $this->getDetails($detailsUrl);
+    
+            if (isset($detailsResponse['id'])) {
+                // Obține filmele în care a jucat actorul
+                $creditsUrl = "https://api.themoviedb.org/3/person/{$actorId}/combined_credits?language=en-US";
+                $creditsResponse = $this->getDetails($creditsUrl);
+    
+                // Initialize an empty array to store actor details
+                $actorDetails = [
+                    'name' => $detailsResponse['name'],
+                    'biography' => $detailsResponse['biography'],
+                    'birthday' => $detailsResponse['birthday'],
+                    'place_of_birth' => $detailsResponse['place_of_birth'],
+                    'gender' => $detailsResponse['gender'] == 1 ? 'Female' : 'Male',
+                    'profile_path' => isset($detailsResponse['profile_path']) ? 'https://image.tmdb.org/t/p/w500' . $detailsResponse['profile_path'] : null,
+                    'known_for' => []
+                ];
+    
+                // Check if creditsResponse has 'cast' key and it is an array
+                if (isset($creditsResponse['cast']) && is_array($creditsResponse['cast'])) {
+                    // Map through each movie in cast
+                    foreach ($creditsResponse['cast'] as $movie) {
+                        // Define default values if keys are not set
+                        $title = isset($movie['title']) ? $movie['title'] : (isset($movie['original_title']) ? $movie['original_title'] : 'Unknown Title');
+                        $overview = isset($movie['overview']) ? $movie['overview'] : '';
+                        $releaseDate = isset($movie['release_date']) ? $movie['release_date'] : 'Unknown Release Date';
+                        $posterPath = isset($movie['poster_path']) ? 'https://image.tmdb.org/t/p/w500' . $movie['poster_path'] : null;
+    
+                        // Add movie details to known_for array
+                        $actorDetails['known_for'][] = [
+                            'title' => $title,
+                            'overview' => $overview,
+                            'release_date' => $releaseDate,
+                            'poster_path' => $posterPath
+                        ];
+                    }
+                }
+    
+                return ['status' => 'success', 'actor' => $actorDetails];
+            } else {
+                return ['status' => 'error', 'message' => 'Actor details not found'];
+            }
         } else {
             return ['status' => 'error', 'message' => 'Actor not found'];
         }
     }
-
-
+    
     public function getAllActorsNames() {
         $query = "SELECT full_name FROM screen_actor_guild_awards WHERE category LIKE '%ACTOR%'";
         $statement = $this->connection->prepare($query);
