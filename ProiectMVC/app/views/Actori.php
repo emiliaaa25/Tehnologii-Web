@@ -46,45 +46,8 @@
           </div>
           <div>
             <a href="#A">A</a>
-            <?php
-            require_once 'C:/xampp/htdocs/ProiectMVC/app/controllers/ActorController.php';
-
-            $actorController = new ActorController();
-            $actors = $actorController->getActorsStartingWith('A');
-            print_r($actors);
-            if($actors != null){
-              foreach ($actors as $actor) {
-                echo "<p style='color:white; background-color: yellow;'>$actor</p>";
-              }
-            }
-            ?>
             <a href="#B">B</a>
-            <?php
-            require_once 'C:/xampp/htdocs/ProiectMVC/app/controllers/ActorController.php';
-
-            $actorController = new ActorController();
-            $actors = $actorController->getActorsStartingWith('B');
-            var_dump($actors);
-            if($actors != null){
-              foreach ($actors as $actor) {
-                echo "<p style='color:white; background-color: yellow;'>$actor</p>";
-              }
-            }
-            ?>
             <a href="#C">C</a>
-            <?php
-            require_once 'C:/xampp/htdocs/ProiectMVC/app/controllers/ActorController.php';
-
-
-            $actorController = new ActorController();
-            $actors = $actorController->getActorsStartingWith("C");
-            var_dump($actors);
-            if($actors != null){
-              foreach ($actors as $actor) {
-                echo "<p style='color:white; background-color: yellow;'>$actor</p>";
-              }
-            }
-            ?>
             <a href="#D">D</a>
             <a href="#E">E</a>
             <a href="#F">F</a>
@@ -111,12 +74,40 @@
           </div>
           <div style="color: white; text-align: left;">
             <h2 id="A">A</h2>
+            <?php
+            require_once 'D:/xampp/htdocs/ProiectMVC/app/controllers/ActorController.php';
+
+            $actorController = new ActorController();
+            $actors = $actorController->getActorsStartingWith('A');
+            foreach ($actors as $actor) {
+                echo $actor['full_name'] . '<br>';
+            }
+            ?>
               <p> 
                 <a href="http://localhost/ProiectMVC/app/views/Actor.php"><img src="http://localhost/ProiectMVC/public/pictures/pozica.png" title="Andrei Aradits" alt="Picture with Andrei Aradits"></a>
                 <img src="http://localhost/ProiectMVC/public/pictures/jennifer.png" title="Jennifer Aniston" alt="Picture with Jennifer Aniston">
               </p>
             <h2 id="B">B</h2>
+            <?php
+            require_once 'D:/xampp/htdocs/ProiectMVC/app/controllers/ActorController.php';
+
+            $actorController = new ActorController();
+            $actors = $actorController->getActorsStartingWith('B');
+            foreach ($actors as $actor) {
+              echo $actor['full_name'] . '<br>';
+          }
+            ?>
             <h2 id="C">C</h2>
+            <?php
+            require_once 'D:/xampp/htdocs/ProiectMVC/app/controllers/ActorController.php';
+
+
+            $actorController = new ActorController();
+            $actors = $actorController->getActorsStartingWith("C");
+            foreach ($actors as $actor) {
+              echo $actor['full_name'] . '<br>';
+          }
+            ?>
             <h2 id="D">D</h2>
             <h2 id="E">E</h2>
             <h2 id="F">F</h2>

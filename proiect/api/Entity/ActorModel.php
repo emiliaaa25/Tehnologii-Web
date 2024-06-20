@@ -70,6 +70,14 @@ class ActorModel {
                 // Obține toate creditele (filmografia completă)
                 $filmographyUrl = "https://api.themoviedb.org/3/person/{$actorId}/combined_credits?language=en-US";
                 $filmographyResponse = $this->getDetails($filmographyUrl);
+                $externalIdsUrl = "https://api.themoviedb.org/3/person/{$actorId}/external_ids?language=en-US";
+                $externalIdsResponse = $this->getDetails($externalIdsUrl);
+
+                // Initializează un vector pentru stocarea ID-urilor externe
+                $externalIds = [
+                    'imdb_id' => isset($externalIdsResponse['imdb_id']) ? $externalIdsResponse['imdb_id'] : null
+                    // Adaugă aici alte ID-uri externe cum ar fi Facebook, Instagram, etc., dacă sunt necesare
+                ];
     
                 // Initialize an empty array to store actor details
                 $actorDetails = [
@@ -77,6 +85,7 @@ class ActorModel {
                     'biography' => $detailsResponse['biography'],
                     'birthday' => $detailsResponse['birthday'],
                     'place_of_birth' => $detailsResponse['place_of_birth'],
+                    'deathday' => $detailsResponse['deathday'],
                     'gender' => $detailsResponse['gender'] == 1 ? 'Female' : 'Male',
                     'profile_path' => isset($detailsResponse['profile_path']) ? 'https://image.tmdb.org/t/p/w500' . $detailsResponse['profile_path'] : null,
                     'known_for' => [],
@@ -89,12 +98,13 @@ class ActorModel {
                         $title = isset($movie['title']) ? $movie['title'] : (isset($movie['original_name']) ? $movie['original_name'] : 'Unknown Title');
                         $posterPath = isset($movie['poster_path']) ? 'https://image.tmdb.org/t/p/w500' . $movie['poster_path'] : null;
                         $popularity = isset($movie['popularity']) ? $movie['popularity'] : null;
-                        
+                        $vote_count = isset($movie['vote_count']) ? $movie['vote_count'] : null;
                                 $actorDetails['known_for'][] = [
                                 'title' => $title,
                                 'overview' => isset($movie['overview']) ? $movie['overview'] : '',
                                 'poster_path' => $posterPath,
-                                'popularity' => $popularity
+                                'popularity' => $popularity,
+                                'vote_count' => $vote_count
                             ];
                     
                 }
@@ -106,11 +116,13 @@ class ActorModel {
                         $releaseDate = isset($movie['release_date']) ? $movie['release_date'] : (isset($movie['first_air_date']) ? $movie['first_air_date'] : 'Unknown Release Date');
                         $posterPath = isset($movie['poster_path']) ? 'https://image.tmdb.org/t/p/w500' . $movie['poster_path'] : null;
                         $type = isset($movie['media_type']) ? $movie['media_type'] : 'yes';
+                        $character = isset($movie['character']) ? $movie['character'] : '';
                         $actorDetails['filmography'][] = [
                             'title' => $title,
                             'release_date' => $releaseDate,
                             'media_type' => $type,
                             'poster_path' => $posterPath,
+                            'character' => $character
 
                         ];
                     }
