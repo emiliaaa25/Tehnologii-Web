@@ -1,6 +1,6 @@
 <?php
 // models/ActorModel.php
-require_once 'C:\xampp\htdocs\ProiectMVC\public\Database/config.php';
+require_once 'C:\xampp\htdocs\ProiectMVC\public\Database\config.php';
 class YearModel {
     private $connection;
 

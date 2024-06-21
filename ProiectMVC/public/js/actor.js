@@ -1,30 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const params = new URLSearchParams(window.location.search);
-    const actorName = params.get('name');
-
-    if (actorName) {
-        fetch(`http://localhost:8000/proiect/api/actors/details?name=${encodeURIComponent(actorName)}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.json();
-            })
-            .then(data => {
-                displayActorDetails(data);
-                displayKnownFor(data);
-                displayFilmography(data);
-            })
-            .catch(error => {
-                console.error('Error fetching actor details:', error);
-                document.getElementById('actor-details').innerHTML = '<p>Error fetching actor details.</p>';
-            });
-    } else {
-        document.getElementById('actor-details').innerHTML = '<p>No actor specified.</p>';
-    }
-
-    document.getElementById('production-type').addEventListener('change', filterFilmography);
-});
 
 function displayActorDetails(data) {
     const actor = data.actor;

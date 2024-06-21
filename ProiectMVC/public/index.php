@@ -9,6 +9,7 @@ $routes = [
     '/proiect/api/years' => ['controller' => 'YearController', 'action' => 'getAllYears'],
     '/proiect/api/specificYear' => ['controller' => 'YearController', 'action' => 'getAllFromSpecificYear', 'params' => ['year']],
     '/proiect/api/actors/letter' => ['controller' => 'ActorController', 'action' => 'getActorsStartingWith', 'params' => ['letter']],
+    '/proiect/api/actors/details' => ['controller' => 'ActorController', 'action' => 'getActorDetails', 'params' => ['name']],
 
 
     // alte rute

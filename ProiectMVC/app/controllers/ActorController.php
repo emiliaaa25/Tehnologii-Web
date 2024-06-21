@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . '/../models/ActorModel.php');
+require_once('C:\xampp\htdocs\ProiectMVC\app\models\ActorModel.php');
 class ActorController {
     public function getAllActors() {
         $actorModel = new ActorModel();
@@ -31,5 +31,23 @@ class ActorController {
         $actorModel = new ActorModel();
         $names = $actorModel->getAllActorsNames();
         return json_encode($names);
+    }
+    public function getActorDetails($params) {
+        if (isset($params['name']) && !empty($params['name']) && is_string($params['name'])) {
+            $name = $params['name'];
+            $actorModel = new ActorModel();
+        $actors = $actorModel->getActorDetailsFromTmdb($name);
+        return json_encode($actors);
+        }
+    }
+
+    public function getActorPhotos($params) {
+        if (isset($params['name']) && !empty($params['name']) && is_string($params['name'])) {
+            $name = $params['name'];
+            $actorModel = new ActorModel();
+            $actors = $actorModel->getActorPhoto($name);
+            return json_encode($actors);
+        }
+        return json_encode([]);
     }
 }

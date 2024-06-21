@@ -1,6 +1,6 @@
 <?php
 // models/ActorModel.php
-require_once ('D:/xampp/htdocs/ProiectMVC/public/Database/config.php');
+require_once 'C:\xampp\htdocs\ProiectMVC\public\Database\config.php';
 class ActorModel {
     private $connection;
     private $tmdbApiKey;
@@ -10,7 +10,7 @@ class ActorModel {
         $db = new Database();
         $this->connection = $db->getConnection();
         $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $this->tmdbApiKey = require_once './Database/config.php';
+        $this->tmdbApiKey = require_once '../../public/Database/config.php';
 
     }
 
@@ -28,7 +28,7 @@ class ActorModel {
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 30,
+            CURLOPT_TIMEOUT => 1000,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_HTTPHEADER => [
@@ -145,7 +145,7 @@ class ActorModel {
     }
     public function getActorsStartingWith($letter) {
         $letter = $letter . '%'; // append '%' to the letter
-        $query = "SELECT full_name FROM screen_actor_guild_awards WHERE full_name LIKE :letter";
+        $query = "SELECT DISTINCT full_name FROM screen_actor_guild_awards WHERE full_name LIKE :letter";
         $statement = $this->connection->prepare($query);
         $statement->bindParam(':letter', $letter);
         $statement->execute();
@@ -157,5 +157,24 @@ class ActorModel {
         $statement->bindParam(':name', $name);
         $statement->execute();
         return $statement->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getActorPhoto($name){
+        $url = "https://api.themoviedb.org/3/search/person?query=" . urlencode($name) . "&include_adult=false&language=en-US";
+        $response = $this->getDetails($url);
+        if (isset($response['results']) && count($response['results']) > 0) {
+            $actorId = $response['results'][0]['id'];
+            $detailsUrl = "https://api.themoviedb.org/3/person/{$actorId}?language=en-US";
+            $detailsResponse = $this->getDetails($detailsUrl);
+            if (isset($detailsResponse['profile_path'])) {
+                $actorDetails=[
+                'profile_path' => isset($detailsResponse['profile_path']) ? 'https://image.tmdb.org/t/p/w500' . $detailsResponse['profile_path'] : null,
+                'name' => $detailsResponse['name']
+                ];
+                return ['status' => 'success', 'actor' => $actorDetails];
+            }
+            
+        }
+
     }
 }
