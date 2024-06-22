@@ -28,5 +28,14 @@ class MovieController {
            
     }
 }
+public function getMovieDetailsFromTmdb($params) {
+    if (isset($params['name']) && !empty($params['name']) && is_string($params['name'])) {
+        $name = $params['name'];
+        $movieModel = new MovieModel();
+    $movie = $movieModel->getMovieDetailsFromTmdb($name);
+    return json_encode($movie);
+    }
+}
+
 
 }

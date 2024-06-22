@@ -84,12 +84,7 @@ if (isset($_GET['name'])) {
                     <div class="known-for">
                         <h3>Known For</h3>
                         <div id="known-for-movies" class="movies-container">
-                            <?php foreach ($actor['known_for'] as $movie): ?>
-                                <div class="movie">
-                                    <img src="<?php echo htmlspecialchars($movie['poster_path']); ?>" alt="Movie Poster">
-                                    <p><?php echo htmlspecialchars($movie['title']); ?></p>
-                                </div>
-                            <?php endforeach; ?>
+                          
                         </div>
                     </div>
                 </div>
@@ -104,14 +99,6 @@ if (isset($_GET['name'])) {
                 </div>
                 <div class="filmography-list">
                     <div id="filmography-container" class="filmography-container">
-                        <?php foreach ($actor['filmography'] as $item): ?>
-                            <div class="filmography-item" data-media-type="<?php echo htmlspecialchars($item['media_type']); ?>">
-                                <img src="<?php echo htmlspecialchars($item['poster_path']); ?>" alt="Poster">
-                                <p><?php echo htmlspecialchars($item['title']); ?></p>
-                                <p><?php echo htmlspecialchars($item['character']); ?></p>
-                                <p><?php echo htmlspecialchars($item['release_date']); ?></p>
-                            </div>
-                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
@@ -128,7 +115,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const actorData = <?php echo isset($actor) ? json_encode($actor) : 'null'; ?>;
 
     if (actorData) {
-        displayActorDetails({ actor: actorData });
         displayKnownFor({ actor: actorData });
         displayFilmography({ actor: actorData });
     } else {

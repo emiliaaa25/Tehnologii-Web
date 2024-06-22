@@ -19,6 +19,7 @@ $routes = [
     '/proiect/api/actors/details' => ['controller' => 'ActorController', 'action' => 'getActorDetails', 'params' => ['name']],
     '/proiect/api/movie' => ['controller' => 'MovieController', 'action' => 'getMovieDetails', 'params' => ['name']],
     '/proiect/api/movieName' => ['controller' => 'MovieController', 'action' => 'getMovieByName', 'params' => ['name']],
+    '/proiect/api/det' => ['controller' => 'MovieController', 'action' => 'getMovieDetailsFromTmdb', 'params' => ['name']],
 
 
     // alte rute

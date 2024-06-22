@@ -1,0 +1,283 @@
+.tvShow-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1400px;
+    margin: 20px auto;
+    background-color: rgb(150, 136, 53);
+    ;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.credits {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.credits .role {
+    width: 150px;
+    /* Lățimea minimă pentru a păstra alinierea */
+    font-weight: bold;
+}
+
+.credits .name {
+    margin-left: 20px;
+    /* Distanță între rol și nume */
+    width: 150px;
+    /* Lățimea minimă pentru a păstra alinierea */
+
+}
+
+
+.backdrop {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 700px;
+    margin-bottom: 2px;
+    position: relative;
+}
+
+
+
+.backdrop-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    text-align: left;
+    padding: 5px;
+    /* Redus de la 20px */
+}
+
+.backdrop-title {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+    /* Redus de la 10px */
+}
+
+.backdrop-details {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    /* Redus de la 20px */
+}
+
+.tvShow-poster {
+    width: 300px;
+    /* Poster width */
+    height: 450px;
+    /* Poster height to match aspect ratio */
+    margin-right: 20px;
+}
+
+.tvShow-poster img {
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    /* Slight opacity for the poster */
+}
+
+.backdrop-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.overview {
+    margin-top: 20px;
+}
+
+.overview h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.overview p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.error-message {
+    color: red;
+    font-size: 18px;
+}
+
+.button-group-round {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.round-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: #555;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.round-button:hover {
+    background-color: #777;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 700px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cast {
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: black;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgb(180, 166, 83);
+    ;
+}
+.cast-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+}
+
+.cast-item {
+    flex: 0 0 auto;
+    width: 150px;
+    text-align: center;
+    color: rgb(180, 166, 83);
+    
+}
+
+.cast-item a {
+    color: rgb(180, 166, 83);
+    text-decoration: none;
+}
+
+.cast-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Custom scrollbar */
+.cast-container::-webkit-scrollbar {
+    height: 12px;
+}
+
+.cast-container::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.3); 
+    border-radius: 10px; 
+}
+
+
+.cast-container::-webkit-scrollbar-thumb {
+    background: rgb(180, 166, 83);
+    border-radius: 6px;
+}
+
+.cast-container::-webkit-scrollbar-thumb:hover {
+    background: rgb(150, 136, 53);
+} 
+
+.last-season-container {
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: black;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgb(180, 166, 83);
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+}
+
+.season-poster {
+    flex: 0 0 auto; /* Fără flexibilitate pentru a păstra lățimea posterului */
+    margin-right: 20px;
+}
+
+.season-poster img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.season-details {
+    flex: 1; /* Întindere flexibilă a detaliilor */
+}
+
+.season-details h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.season-details p {
+    margin-bottom: 10px;
+    color: rgb(180, 166, 83);
+    font-size: 20px;
+}
+
+.season-stats {
+    margin-bottom: 10px;
+}
+
+.view-more {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid  rgb(180, 166, 83);
+    border-radius: 5px;
+    background-color: rgb(180, 166, 83);
+    color: #fff;
+    text-decoration: none;
+}
+
+.view-more:hover {
+    background-color: rgb(150, 136, 53);
+}

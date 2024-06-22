@@ -2,20 +2,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px auto;
+    margin: 10px auto;
     max-width: 1400px;
     padding: 20px;
-    border: 10px solid rgb(180, 166, 83); /* Adăugăm o bordură */
-    border-radius: 8px; /* Adăugăm colțuri rotunjite */
+    border: 10px solid rgb(180, 166, 83);
+    border-radius: 8px;
     box-shadow: 0 0 10px rgb(180, 166, 83);
+    
 }
-
 
 .actor-image {
     width: 100%;
     max-width: 100px;
-    margin-bottom: 20px;
     text-align: center;
+    flex: 0 0 auto; /* Nu cresc în dimensiuni */
+    display: flex; /* Afișăm elementele într-o coloană */
+    flex-direction: column; /* Colocăm imaginea și textul într-o coloană */
+    color: rgb(150, 136, 53); /* Setăm culoarea textului */
+    white-space: normal;  
+     
+    
 }
 
 .actor-image img {
@@ -23,6 +29,7 @@
     border: 2px solid rgb(180, 166, 83);
     box-shadow: 0 0 10px rgb(180, 166, 83);
     border-radius: 8px;
+    margin-bottom: 0;
 }
 
 .actor-info {
@@ -31,16 +38,11 @@
     color: rgb(180, 166, 83);
     padding: 20px;
     display: flex;
-    flex-direction: column; /* Afișăm elementele într-o coloană */
-    align-items: center; /* Aliniem elementele pe centrul axei orizontale */
+    flex-direction: column;
+    align-items: center;
 }
 
-.personal-info {
-    margin-top: 5px;
-    text-align: left;
-    align-items: center;
-    color: rgb(180, 166, 83);
-}
+
 
 /* Additional CSS for biography show more/less functionality */
 #actor-biography {
@@ -71,7 +73,7 @@
     cursor: pointer;
 }
 .known-for {
-    max-width: 1000px; /* Lățime maximă */
+    max-width: 990px; /* Lățime maximă */
     margin: 30px;
     margin-left: 60px;
     padding: 10px;
@@ -96,30 +98,34 @@
     flex-direction: column; /* Colocăm imaginea și textul într-o coloană */
     align-items: center;
     width: 150px; /* Ajustăm lățimea pentru a se potrivi cu imaginea */
-}
-
-.known-for .movie-item p {
     margin: 0; /* Eliminăm marginile implicite ale paragrafului */
     padding-top: 10px; /* Adăugăm puțin spațiu între imagine și text */
     color: rgb(150, 136, 53); /* Setăm culoarea textului */
     white-space: normal; /* Permitem textului să fie pe mai multe rânduri */
 }
 
+
+
 .known-for .movie-item img {
     width: 150px; /* Asigurăm că imaginea are aceeași lățime ca și containerul */
     height: 200px; /* Setăm înălțimea imaginii */
     border-radius: 8px;
+    margin-bottom: 0;
+}
+.known-for .movie-item a {
+    color: rgb(180, 166, 83);
+    text-decoration: none;
 }
 
+/* Stiluri pentru scrollbar */
 .movies-container::-webkit-scrollbar {
     height: 12px;
 }
 
 .movies-container::-webkit-scrollbar-track {
-    background-color: rgba(0, 0, 0, 0.3); 
-    border-radius: 10px; 
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
 }
-
 
 .movies-container::-webkit-scrollbar-thumb {
     background: rgb(180, 166, 83);
@@ -129,7 +135,6 @@
 .movies-container::-webkit-scrollbar-thumb:hover {
     background: rgb(150, 136, 53);
 }
-
 .filmography {
     max-width: 1400px;
     margin: 30px auto;
@@ -166,6 +171,11 @@
     width: 150px;
     text-align: center;
     color: rgb(180, 166, 83);
+    
+}
+.filmography-item a {
+    color: rgb(180, 166, 83);
+    text-decoration: none;
 }
 
 .filmography-item img {

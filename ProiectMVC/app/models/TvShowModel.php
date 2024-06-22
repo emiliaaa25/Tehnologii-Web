@@ -1,24 +1,28 @@
 <?php
 require_once '../../public/Database/config.php';
 
-class MovieModel {
+class TvShowModel
+{
     private $connection;
     private $tmdbApiKey;
 
-    public function __construct() {
+    public function __construct()
+    {
         $db = new Database();
         $this->connection = $db->getConnection();
         $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    public function getAllMovies() {
+    public function getAlltvShows()
+    {
         $query = "SELECT DISTINCT `show` FROM screen_actor_guild_awards";
         $statement = $this->connection->prepare($query);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getDetails($url){
+    public function getDetails($url)
+    {
         $curl = curl_init();
         curl_setopt_array($curl, [
             CURLOPT_URL => $url,
@@ -31,9 +35,9 @@ class MovieModel {
             CURLOPT_HTTPHEADER => [
                 "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3NDA1ZjJlYWE5NzRjYmRmOThmYzBkZWU4YzYyZTNmZCIsInN1YiI6IjVkNjAwMmVkYTg5NGQ2NmZmOTlhYjY3MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.5PZuPsNJ0tMAyp9hyhUN6Yv3W_EryL2UMKAyecJxoEU",
                 "accept: application/json"
-              ],
-            ]);
-            
+            ],
+        ]);
+
 
         $response = curl_exec($curl);
         $err = curl_error($curl);
@@ -45,49 +49,46 @@ class MovieModel {
         } else {
             return json_decode($response, true);
         }
-    
+
     }
 
-    public function getMovieDetailsFromTmdb($name) {
-        $url = "https://api.themoviedb.org/3/search/movie?query=" . urlencode($name) . "&include_adult=false&language=en-US";
+    public function gettvShowDetailsFromTmdb($name)
+    {
+        $url = "https://api.themoviedb.org/3/search/tv?query=" . urlencode($name) . "&language=en-US";
         $response = $this->getDetails($url);
 
         if (isset($response['results']) && count($response['results']) > 0) {
-            $movieId = $response['results'][0]['id'];
-            $detailsUrl = "https://api.themoviedb.org/3/movie/{$movieId}?language=en-US";
+            $tvShowId = $response['results'][0]['id'];
+            $detailsUrl = "https://api.themoviedb.org/3/tv/{$tvShowId}?language=en-US";
             $detailsResponse = $this->getDetails($detailsUrl);
 
             if (isset($detailsResponse['id'])) {
-                 $videoUrl ="https://api.themoviedb.org/3/movie/{$movieId}/videos?language=en-US";
-                 $videoResponse = $this->getDetails($videoUrl);
+                $videoUrl = "https://api.themoviedb.org/3/tv/{$tvShowId}/videos?language=en-US";
+                $videoResponse = $this->getDetails($videoUrl);
 
-                 $creditsUrl = "https://api.themoviedb.org/3/movie/{$movieId}/credits?language=en-US";
-                    $creditsResponse = $this->getDetails($creditsUrl);
-                
-                 if (isset($videoResponse['results']) && count($videoResponse['results']) > 0) {
+                $creditsUrl = "https://api.themoviedb.org/3/tv/{$tvShowId}/credits?language=en-US";
+                $creditsResponse = $this->getDetails($creditsUrl);
+
+                if (isset($videoResponse['results']) && count($videoResponse['results']) > 0) {
                     foreach ($videoResponse['results'] as $video) {
                         if ($video['site'] === 'YouTube' && $video['type'] === 'Trailer') {
-                            $videokey= $video['key'];
+                            $videokey = $video['key'];
                             break;
                         }
                     }
                 }
                 $director = []; // Inițializează array-ul pentru directori
                 $writer = []; // Inițializează array-ul pentru scriitori
-                $screenplay = []; // Inițializează array-ul pentru scenariști
                 $cast = [];
                 if (isset($creditsResponse['crew']) && count($creditsResponse['crew']) > 0) {
                     foreach ($creditsResponse['crew'] as $crew) {
-                        if ($crew['department'] === 'Directing' && count($director) < 2) {
+                        if ($crew['department'] === 'Production' && count($director) < 2) {
                             $director[] = $crew['name'];
                         }
-                        if ($crew['department'] === 'Writing'&& count($writer) < 2){
+                        if ($crew['department'] === 'Writing' && count($writer) < 2) {
                             $writer[] = $crew['name'];
                         }
-                        if($crew['job'] === 'Screenplay' && count($screenplay) < 2){
-                            $screenplay[] = $crew['name'];
-                        }
-                        
+
                     }
                 }
 
@@ -100,29 +101,32 @@ class MovieModel {
                         ];
                     }
                 }
-                
-                $movieDetails = [
-                    'title' => $detailsResponse['title'],
+                $lastSeasonNumber = $detailsResponse['last_episode_to_air']['season_number'];
+                $lastSeason = array_filter($detailsResponse['seasons'], function ($season) use ($lastSeasonNumber) {
+                    return $season['season_number'] === $lastSeasonNumber;
+                });
+                $lastSeason = reset($lastSeason);
+                $tvShowDetails = [
+                    'name' => $detailsResponse['name'],
                     'tagline' => isset($detailsResponse['tagline']) ? $detailsResponse['tagline'] : 'daaa', // Adăugat tagline-ul filmului
                     'backdrop_path' => $detailsResponse['backdrop_path'],
                     'poster_path' => $detailsResponse['poster_path'],
-                    'release_date' => $detailsResponse['release_date'],
+                    'first_air_date' => $detailsResponse['first_air_date'],
                     'genres' => array_column($detailsResponse['genres'], 'name'),
-                    'origin_country'=> array_column($detailsResponse['production_countries'], 'name'),
-                    'duration' => $detailsResponse['runtime'],
-                    
+                    'origin_country' => array_column($detailsResponse['production_countries'], 'name'),
+                    'last_season' => $lastSeason,
                     'overview' => $detailsResponse['overview'],
                     'video_key' => $videokey,
                     'director' => $director,
                     'writer' => $writer,
                     'cast' => $cast,
                 ];
-                return ['status' => 'success', 'movie' => $movieDetails];
+                return ['status' => 'success', 'tvShow' => $tvShowDetails];
             }
         }
 
         return null; // Returnează null dacă nu găsește filmul
     }
 
-   
+
 }
