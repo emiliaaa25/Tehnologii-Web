@@ -19,5 +19,25 @@ class TvShowController {
         }
     }
 
+    public function getAllSeasonsFromTmdb($params) {
+        if (isset($params['id']) && !empty($params['id']) && is_numeric($params['id'])) {
+            $showId = $params['id'];
+        $model = new TvShowModel();
+        $seasons=$model->getAllSeasonsFromTmdb($showId);
+        return json_encode($seasons);
+        
+    }
+}
+
+    public function getEpisodes($params) {
+        if (isset($params['id']) && !empty($params['id']) && is_numeric($params['id']) && isset($params['season_number'])  && is_numeric($params['season_number'])) {
+            $showId = $params['id'];
+            $seasonNumber = $params['season_number'];
+            $model = new TvShowModel();
+            $episodes = $model->getEpisodes($showId, $seasonNumber);
+            return json_encode($episodes);
+        }
+    }
+
 
 }

@@ -16,14 +16,15 @@
     <div class="section-1">
         <div class="title">Actors Awards</div>
         <div class="button-group">
-            <div class="search-container">
-                <form action="#" method="get">
-                    <input type="text" name="search" placeholder="Search...">
-                    <button type="submit" class="search-container">
-                        <img src="http://localhost/ProiectMVC/public/pictures/search.png" alt="Search" style="width: 30px; height: 30px;">
-                    </button>
-                </form>
-            </div>
+        <div class="search-container">
+                    <form action="http://localhost/ProiectMVC/app/views/Search.php" method="get">
+                        <input type="text" name="query" placeholder="Search...">
+                        <button type="submit">
+                            <img src="http://localhost/ProiectMVC/public/pictures/search.png" alt="Search"
+                                style="width: 30px; height: 30px;">
+                        </button>
+                    </form>
+                </div> 
             <button class="button" onclick="window.location.href='http://localhost/ProiectMVC/app/views/home/HomePage.php'">Home Page</button>
             <button class="button" onclick="window.location.href='http://localhost/ProiectMVC/app/views/Actori.php'"><strong>Actors</strong></button>
             <button class="button" onclick="window.location.href='http://localhost/ProiectMVC/app/views/Years.php'">Years</button>

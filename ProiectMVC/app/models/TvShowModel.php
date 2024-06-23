@@ -68,7 +68,7 @@ class TvShowModel
 
                 $creditsUrl = "https://api.themoviedb.org/3/tv/{$tvShowId}/credits?language=en-US";
                 $creditsResponse = $this->getDetails($creditsUrl);
-
+                $videokey = null;
                 if (isset($videoResponse['results']) && count($videoResponse['results']) > 0) {
                     foreach ($videoResponse['results'] as $video) {
                         if ($video['site'] === 'YouTube' && $video['type'] === 'Trailer') {
@@ -118,7 +118,9 @@ class TvShowModel
                     'overview' => $detailsResponse['overview'],
                     'video_key' => $videokey,
                     'director' => $director,
+                    'seasons' => $detailsResponse['seasons'], // Adăugat 'seasons' => $detailsResponse['seasons'] pentru a afișa toate sezoanele în pagina 'DetaliiSezon.php
                     'writer' => $writer,
+                    'id'=> $detailsResponse['id'],
                     'cast' => $cast,
                 ];
                 return ['status' => 'success', 'tvShow' => $tvShowDetails];
@@ -129,4 +131,68 @@ class TvShowModel
     }
 
 
+    public function getAllSeasonsFromTmdb($showId)
+    {
+        $url = "https://api.themoviedb.org/3/tv/{$showId}?language=en-US";
+        $response = $this->getDetails($url);
+        
+
+        if (isset($response['seasons']) && count($response['seasons']) > 0) {
+            // Collecting all seasons
+            $allSeasons = $response['seasons'];
+            return ['status' => 'success', 'seasons' => $allSeasons];
+        }
+
+        return json_encode(['status' => 'error', 'message' => 'Seasons not found.']);
+    }
+
+    public function getEpisodes($showId, $seasonNumber)
+    {
+        $url = "https://api.themoviedb.org/3/tv/{$showId}/season/{$seasonNumber}?language=en-US";
+        $response = $this->getDetails($url);
+    
+        if (isset($response['id'])) {
+            $episodes = [];
+            foreach ($response['episodes'] as $episode) {
+                $crewMembers = [];
+                foreach ($episode['crew'] as $crewMember) {
+                    $crewMembers[] = [
+                        'name' => $crewMember['name'],
+                        'job' => $crewMember['job'],
+                        'profile_path' => isset($crewMember['profile_path']) ? 'https://image.tmdb.org/t/p/w200' . $crewMember['profile_path'] : null,
+                    ];
+                }
+    
+                $guestStars = [];
+                foreach ($episode['guest_stars'] as $guestStar) {
+                    $guestStars[] = [
+                        'name' => $guestStar['name'],
+                        'character' => $guestStar['character'],
+                        'profile_path' => isset($guestStar['profile_path']) ? 'https://image.tmdb.org/t/p/w200' . $guestStar['profile_path'] : null,
+                    ];
+                }
+    
+                $episodeDetails = [
+                    'episode_number' => $episode['episode_number'],
+                    'name' => $episode['name'],
+                    'overview' => $episode['overview'],
+                    'air_date' => $episode['air_date'],
+                    'runtime' => $episode['runtime'],
+                    'still_path' => isset($episode['still_path']) ? 'https://image.tmdb.org/t/p/w300' . $episode['still_path'] : null,
+                    'vote_average' => $episode['vote_average'],
+                    'crew' => $crewMembers,
+                    'guest_stars' => $guestStars,
+                ];
+    
+                $episodes[] = $episodeDetails;
+            }
+    
+            return ['status' => 'success', 'episodes' => $episodes];
+        }
+    
+        return json_encode(['status' => 'error', 'message' => 'Season details not found.']);
+    }
+    
+
 }
+

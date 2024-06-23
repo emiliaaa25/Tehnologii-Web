@@ -8,6 +8,7 @@ if (isset($_GET['title'])) {
     if ($tvShowJson === false) {
         echo "Failed to fetch tvShow details.";
     }
+
     $tvShowData = json_decode($tvShowJson, true);
     if ($tvShowData['status'] == 'success') {
 
@@ -45,15 +46,15 @@ if (isset($_GET['title'])) {
         <div class="section-1">
             <div class="title">Actors Awards</div>
             <div class="button-group">
-                <div class="search-container">
-                    <form action="#" method="get">
-                        <input type="text" name="search" placeholder="Search...">
-                        <button type="submit" class="search-container">
+            <div class="search-container">
+                    <form action="http://localhost/ProiectMVC/app/views/Search.php" method="get">
+                        <input type="text" name="query" placeholder="Search...">
+                        <button type="submit">
                             <img src="http://localhost/ProiectMVC/public/pictures/search.png" alt="Search"
                                 style="width: 30px; height: 30px;">
                         </button>
                     </form>
-                </div>
+                </div> 
                 <button class="button"
                     onclick="window.location.href='http://localhost/ProiectMVC/app/views/home/HomePage.php'">Home
                     Page</button>
@@ -133,8 +134,8 @@ if (isset($_GET['title'])) {
             <p><?= htmlspecialchars($tvShow['last_season']['air_date']); ?></p>
             <p><?= htmlspecialchars($tvShow['last_season']['overview']); ?></p>
         </div>
-        <a href="#" class="view-more">View All Seasons</a>
-    </div>
+<a href="http://localhost/ProiectMVC/app/views/Seasons.php?show_id=<?= isset($tvShow['id']) ? $tvShow['id'] : '1' ?>" class="view-more">View All Seasons</a>
+        </div>
 </div>
             <div id="trailerModal" class="modal">
                 <div class="modal-content">
