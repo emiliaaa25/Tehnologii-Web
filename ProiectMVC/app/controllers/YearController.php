@@ -16,4 +16,26 @@ class YearController {
         return json_encode($years);
     }}
 
+    public function getYearDetails($params) {
+        if (isset($params['year']) && !empty($params['year']) && is_string($params['year'])) {
+        $year = $params['year'];
+        $yearModel = new YearModel();
+        $years = $yearModel->getCategoriesAndNomineesForYear($year);
+        return json_encode($years);
+    }}
+
+    public function fetchImageUrl($name, $type) {
+      
+        if (isset($_GET['name']) && isset($_GET['type'])) {
+            $name = $_GET['name'];
+            $type = $_GET['type'];
+        
+            $yearController = new YearController();
+            $imageUrl = $yearController->fetchImageUrl($name, $type);
+            return json_encode(['imageUrl' => $imageUrl]);
+        } else {
+            return json_encode(['error' => 'Invalid parameters.']);
+        }
+    }
+
 }

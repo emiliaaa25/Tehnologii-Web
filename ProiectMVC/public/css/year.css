@@ -1,66 +1,98 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-}
-
 .container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
+    margin: 40px 0;
+    background-color: black;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgb(180, 166, 83);
+    overflow: hidden;
+    height: 600px;
+    width: 1400px;
+    padding: 10px;
 }
 
-.left-section {
-    position: relative;
+main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left-aligned .left-section {
+    order: 1;
+}
+
+.left-aligned .right-section {
+    order: 2;
+}
+
+.right-aligned .left-section {
+    order: 2;
+}
+
+.right-aligned .right-section {
+    order: 1;
+}
+
+.left-section, .right-section {
     width: 50%;
-    height: 60vh;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    height: 100%;
 }
 
 .background-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    filter: brightness(50%);
+    object-fit: contain;
+    filter: brightness(70%);
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .text-overlay {
     position: absolute;
     bottom: 20px;
     left: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 5px;
     color: white;
-}
-
-.performance-text {
-    font-size: 1.5em;
-    margin: 0;
+    max-width: 90%;
 }
 
 .text-overlay h1 {
-    font-size: 2.5em;
-    margin: 10px 0;
+    font-size: 2em;
+    margin: 0 0 10px;
+}
+
+.performance-text {
+    font-size: 1.2em;
+    margin: 0;
 }
 
 .view-cast {
     display: inline-block;
     margin-top: 10px;
-    padding: 10px 20px;
-    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 255, 0.2);
     color: white;
     text-decoration: none;
     border-radius: 5px;
 }
 
-.right-section {
-    width: 30%;
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+.right-section h3 {
+    margin: 0;
+    color: white; /* Schimbat la alb */
+}
+
+.right-section h2 {
+    margin: 10px 0;
+    font-size: 2em; /* Font mai mare */
+    color: white; /* Schimbat la alb */
 }
 
 .right-section ul {
@@ -70,25 +102,50 @@ body {
 }
 
 .right-section ul li {
-    margin: 10px 0;
-    font-size: 1.2em;
+    margin: 10px 0; /* Spațiu între elemente */
+    font-size: 1.5em; /* Font mai mare */
+    color: white; /* Schimbat la alb */
 }
 
 .right-section ul li.recipient {
     display: flex;
     align-items: center;
     font-weight: bold;
-    background-color: #007bff;
+    background-color:rgb(180, 166, 83); /* Fundal auriu */
     color: white;
     padding: 10px;
     border-radius: 5px;
 }
 
-.right-section ul li.recipient .trophy {
+.right-section ul li button {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+}
+
+.recipient {
+    display: flex;
+    align-items: center;
+    background-color: #B8860B; /* Auriu pentru câștigător */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.recipient .trophy {
+    width: 30px;
+    height: auto;
     margin-right: 10px;
 }
 
-.right-section ul li.recipient .trophy img {
-    width: 20px;
-    height: auto;
+.recipient button {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
 }

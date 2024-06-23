@@ -1,3 +1,19 @@
+<?php
+require_once 'C:/xampp/htdocs/ProiectMVC/app/controllers/YearController.php';
+
+if (isset($_GET['year'])) {
+    $year = $_GET['year'];
+    
+    $yearController = new YearController();
+
+    // Fetch categories and nominees for the given year
+    $yearJson = $yearController->getYearDetails(['year' => $year]);
+    $yearData = json_decode($yearJson, true);
+
+} else {
+    $error = 'No year specified.';
+}
+?>
 <!DOCTYPE html>
 <html lang="ro">
 <head>
@@ -6,6 +22,14 @@
     <link rel="icon" type="image/x-icon" href="http://localhost/ProiectMVC/public/pictures/icon.jpg">
     <link rel="stylesheet" href="http://localhost/ProiectMVC/public/css/styles.css">
     <link rel="stylesheet" href="http://localhost/ProiectMVC/public/css/year.css">
+    <script>
+        function updateImage(categoryId, nomineeImageUrl) {
+            const imageElement = document.getElementById(`image-${categoryId}`);
+            if (imageElement) {
+                imageElement.src = nomineeImageUrl;
+            }
+        }
+    </script>
 </head>
 <body>
 <header>
@@ -13,7 +37,7 @@
         <button class="dissmis" onclick="toggleSearchBar()"><img src="arrow.png" alt=""></button>
         <button onclick="window.location.href='http://localhost/ProiectMVC/app/views/home/HomePage.php'" class="search-barr">Home Page</button>
         <button onclick="window.location.href='http://localhost/ProiectMVC/app/views/Actori.php'" class="search-barr">Actors</button>
-        <button onclick="window.location.href='http://localhost/ProiectMVC/app/views/Years.php'" class="search-barr">Years</button>
+        <button onclick="window.location.href='http://localhost/ProiectMVC/app/views/Years.php'" class="search-barr"><strong>Years</strong></button>
     </div>
     <div class="section-1">
         <div class="title">Actors Awards</div>
@@ -34,30 +58,44 @@
     </div>
 </header>
 <main>
-    <div class="container">
-        <div class="left-section">
-            <img src="http://localhost/ProiectMVC/public/pictures/imag2.png" alt="Award Image" class="background-image">
-            <div class="text-overlay">
-                <p class="performance-text">Outstanding Performance by a</p>
-                <h1>CAST IN A MOTION PICTURE</h1>
-                <a href="#" class="view-cast">View Cast</a>
+    <?php if (isset($yearData) && !empty($yearData['year'])): ?>
+        <?php $alignmentClass = 'left-aligned'; ?>
+        <?php foreach ($yearData['year'] as $category => $categoryData): ?>
+            <div class="container <?php echo $alignmentClass; ?>">
+                <div class="left-section">
+                    <img id="image-<?php echo htmlspecialchars($category); ?>" src="<?php echo htmlspecialchars($categoryData['imageUrl']); ?>" alt="Award Image" class="background-image">
+                    <div class="text-overlay">
+                        <p class="performance-text">Outstanding Performance by a</p>
+                        <h1><?php echo htmlspecialchars($category); ?></h1>
+                        <a href="#" class="view-cast">View Cast</a>
+                    </div>
+                </div>
+                <div class="right-section">
+                    <ul>
+                        <?php foreach ($categoryData['nominees'] as $nominee): ?>
+                            <li>
+                                <?php if ($nominee['name'] === $categoryData['winner']): ?>
+                                    <div class="recipient">
+                                        <img src="http://localhost/ProiectMVC/public/pictures/trophy.png" alt="Trophy" class="trophy">
+                                        <button class="winner" onclick="updateImage('<?php echo htmlspecialchars($category); ?>', '<?php echo htmlspecialchars($nominee['imageUrl']); ?>')">
+                                            <?php echo htmlspecialchars($nominee['name']); ?> (<?php echo htmlspecialchars($nominee['type']); ?>)
+                                        </button>
+                                    </div>
+                                <?php else: ?>
+                                    <button onclick="updateImage('<?php echo htmlspecialchars($category); ?>', '<?php echo htmlspecialchars($nominee['imageUrl']); ?>')">
+                                        <?php echo htmlspecialchars($nominee['name']); ?> (<?php echo htmlspecialchars($nominee['type']); ?>)
+                                    </button>
+                                <?php endif; ?>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="right-section">
-            <h3>RECIPIENT</h3>
-            <h2>SPOTLIGHT</h2>
-            <ul>
-                <li>BEASTS OF NO NATION</li>
-                <li>THE BIG SHORT</li>
-                <li class="recipient">
-                    <img src="http://localhost/ProiectMVC/public/pictures/trophy.png" alt="Trophy" class="trophy">
-                    <span>SPOTLIGHT</span>
-                </li>
-                <li>STRAIGHT OUTTA COMPTON</li>
-                <li>TRUMBO</li>
-            </ul>
-        </div>
-    </div>
+            <?php $alignmentClass = ($alignmentClass === 'left-aligned') ? 'right-aligned' : 'left-aligned'; ?>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p>No data available for the specified year.</p>
+    <?php endif; ?>
 </main>
 </body>
 </html>

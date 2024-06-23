@@ -54,12 +54,14 @@
                 $picturePath = $_SERVER['DOCUMENT_ROOT'] . "/ProiectMVC/public/pictures/{$year['year']}.png";
                 if (file_exists($picturePath)) {
                     // The picture exists
-                    echo '<a href="http://localhost/ProiectMVC/app/views/Year.php"><img src="http://localhost/ProiectMVC/public/pictures/' . $year['year'] . '.png" alt=""></a>';
-                
+                    echo '<a href="http://localhost/ProiectMVC/app/views/Year.php?year=' . urlencode($year['year']) . '">';
+                    echo '<img src="http://localhost/ProiectMVC/public/pictures/' . $year['year'] . '.png" alt="">';
+                    echo '</a>';
                 } else {
                     // The picture does not exist
-                    echo '<a href="http://localhost/ProiectMVC/app/views/Year.php"><img src="http://localhost/ProiectMVC/public/pictures/placeholder.png" alt=""></a>';
-                
+                    echo '<a href="http://localhost/ProiectMVC/app/views/Year.php?year=' . urlencode($year['year']) . '">';
+                    echo '<img src="http://localhost/ProiectMVC/public/pictures/placeholder.png" alt="">';
+                    echo '</a>';
                 }
             }
         ?>
