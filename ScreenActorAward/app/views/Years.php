@@ -2,9 +2,8 @@
 <!DOCTYPE html>
 <html lang="ro">
     <head>
-
         <link rel="stylesheet" href="http://localhost/ScreenActorAward/public/css/styles.css">
-
+        <link rel="stylesheet" href="http://localhost/ScreenActorAward/public/css/years.css">
         <meta charset="UTF-8">
         <title>
             Years

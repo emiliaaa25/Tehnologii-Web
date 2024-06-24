@@ -2,6 +2,7 @@
 <html lang="ro">
 <head>
     <link rel="stylesheet" href="http://localhost/ScreenActorAward/public/css/styles.css">
+    <link rel="stylesheet" href="http://localhost/ScreenActorAward/public/css/register.css">
     <meta charset="UTF-8">
     <title>Register</title>
     <link rel="icon" type="image/x-icon" href="http://localhost/ScreenActorAward/public/pictures/icon.jpg">

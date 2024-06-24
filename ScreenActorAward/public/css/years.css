@@ -1,76 +1,54 @@
-.ani-section1,
-.ani-poze-sec1 {
-    margin-top: 15vh;
-    font-family: monospace;
-    text-align: center;
-    color: rgb(180, 166, 83);
-}
-
-.ani-section1 h1 {
-    font-size: 50px;
-}
-  
 .ani-poze-sec1 {
   display: flex;
-  flex-wrap: wrap; /* Permit imaginilor să se înfășoare pe mai multe linii */
-  justify-content: center; /* Aliniază imaginile în centru */
+  flex-direction: column;
+  align-items: center;
 }
 
 .ani-poze-sec1 img {
-  width: 30vw; /* Lățime relativă */
-  max-width: 300px; /* Limităm lățimea maximă a imaginilor */
-  height: auto; /* Înălțimea se ajustează automat pentru a menține proporțiile */
+  width: 300px; /* Lățime fixă pentru imagini */
+  height: auto; /* Menține proporțiile imaginii */
   border: 2px solid rgb(180, 166, 83);
   box-shadow: 0 0 10px rgb(180, 166, 83);
-  margin: 10px; /* Spațiere între imagini */
+  margin: 10px auto; /* Margin pentru a separa imaginile */
 }
+
+.ani-section1 h1 {
+  font-size: 50px;
+}
+
+.ani-poze-sec1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.year-container {
+  margin-bottom: 30px;
+}
+
+.year-container h2 {
+  margin-bottom: 10px;
+}
+
 
 .ani-poze-sec1 img:hover {
   opacity: 0.5;
 }
 
-  
-  .button {
-    background-color: rgb(9, 8, 5);
-    border: none;
-    color: white;
-    padding: 15px 15px;
-    text-align: center;
-    font-size: 14px;
-    margin: 0 10px;
-    opacity: 0.6;
-    transition: 0.3s;
-    text-decoration: none;
-    cursor: pointer;
+@media (max-width: 1100px) {
+  .ani-poze-sec1 img {
+      width: 40vw;
   }
-  
-  .button img{
-    width: 25px;
-    height: auto;
+}
+
+@media (max-width: 800px) {
+  .ani-poze-sec1 img {
+      width: 50vw;
   }
-  .border{
-    padding: 5px 25px;
+}
+
+@media (max-width: 600px) {
+  .ani-poze-sec1 img {
+      width: 60vw;
   }
-  
-  .button:hover {
-    opacity: 1;
-  }
-  
-  .search-container {
-    position: relative; 
-    margin-left: 10px;
-  }
-  
-  .search-container input[type=text] {
-    background-color: rgb(93, 80, 41);
-    padding: 15px 30px 15px 15px;
-    border: none;
-    font-size: 16px;
-  }
-  
-  @media (max-width: 768px) {
-    .ani-poze-sec1 img {
-        width: 80%; /* Imaginile ocupă 80% din lățimea disponibilă */
-        max-width: none; /* Anulăm limitarea lățimii maxime */
-    }
 }

@@ -34,6 +34,26 @@ if (isset($_GET['name'])) {
 <head>
     <link rel="stylesheet" href="http://localhost/ScreenActorAward/public/css/styles.css">
     <link rel="stylesheet" href="http://localhost/ScreenActorAward/public/css/actor.css">
+    <script src="http://localhost/ScreenActorAward/public/js/actor.js"></script>
+    <script>
+    function toggleSearchBar() {
+              var searchBar = document.getElementById("searchBar");
+              searchBar.classList.toggle("show");
+            }
+        document.addEventListener('DOMContentLoaded', function () {
+            const actorData = <?php echo isset($actor) ? json_encode($actor) : 'null'; ?>;
+
+            if (actorData) {
+                displayKnownFor({ actor: actorData });
+                displayFilmography({ actor: actorData });
+            } else {
+                document.getElementById('actor-details').innerHTML = '<p>No actor specified.</p>';
+            }
+
+            document.getElementById('production-type').addEventListener('change', filterFilmography);
+        });
+        
+    </script>
     <meta charset="UTF-8">
     <title>Actor's Page</title>
     <link rel="icon" type="image/x-icon" href="http://localhost/ScreenActorAward/public/pictures/icon.jpg">
@@ -139,53 +159,6 @@ if (isset($_GET['name'])) {
                             // Assuming $actorController is already defined and fetchNewsForActor method is available
                             
                             $articles = $actorController->fetchNewsForActor($actorName);
-
-                            // Include CSS for styling and defining backgrounds
-                            echo '
-                            <style>
-                                .news-container {
-                                    margin: 20px auto;
-                                    max-width: 1400px;
-                                }
-                                .news-article {
-                                    margin-bottom: 20px;
-                                    padding: 20px;
-                                    background-color: rgba(180, 166, 83, 0.1); /* Lighter gold background for all articles */
-                                    border: 2px solid rgb(180, 166, 83); /* Gold border */
-                                    border-radius: 8px;
-                                    box-shadow: 0 0 10px rgb(180, 166, 83); /* Shiny effect */
-                                    color: rgb(180, 166, 83); /* Gold text color */
-                                }
-                                .news-article h2 {
-                                    font-size: 24px;
-                                    margin-bottom: 10px;
-                                    color: rgb(180, 166, 83); /* Gold color for the title */
-                                    text-align: center; /* Center the title */
-                                }
-                                .news-article p {
-                                    font-size: 16px;
-                                    margin-bottom: 10px;
-                                    color: rgb(180, 166, 83); /* Gold color for the text */
-                                    text-align: center; /* Center the text */
-                                }
-                                .news-article a {
-                                    display: block;
-                                    width: fit-content;
-                                    margin: 0 auto; /* Center the button */
-                                    padding: 10px 20px;
-                                    background-color: rgb(180, 166, 83); /* Cream color */
-                                    color: black;
-                                    text-decoration: none;
-                                    border-radius: 5px;
-                                    transition: background-color 0.3s;
-                                    text-align: center; /* Center the button */
-                                }
-                                .news-article a:hover {
-                                    background-color: rgb(150, 136, 53); /* Darker cream color on hover */
-                                }
-                            </style>
-                            ';
-
                             echo '<div class="news-container">';
                             $ct = 1;
                             foreach ($articles as $article) {
@@ -199,15 +172,6 @@ if (isset($_GET['name'])) {
                             }
                             echo '</div>';
                             ?>
-
-
-
-
-
-
-
-
-
                         </div>
                     </div>
                 </div>
@@ -218,26 +182,6 @@ if (isset($_GET['name'])) {
             <?php endif; ?>
         </div>
     </main>
-    <script src="http://localhost/ScreenActorAward/public/js/actor.js"></script>
-    <script>
-    function toggleSearchBar() {
-              var searchBar = document.getElementById("searchBar");
-              searchBar.classList.toggle("show");
-            }
-        document.addEventListener('DOMContentLoaded', function () {
-            const actorData = <?php echo isset($actor) ? json_encode($actor) : 'null'; ?>;
-
-            if (actorData) {
-                displayKnownFor({ actor: actorData });
-                displayFilmography({ actor: actorData });
-            } else {
-                document.getElementById('actor-details').innerHTML = '<p>No actor specified.</p>';
-            }
-
-            document.getElementById('production-type').addEventListener('change', filterFilmography);
-        });
-        
-    </script>
 </body>
 
 </html>

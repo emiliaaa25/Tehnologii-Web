@@ -5,6 +5,7 @@
     align-items: center;
     background-color: rgb(180, 166, 83); /* Fundal chenar */
     background-image: linear-gradient(to bottom right, rgb(211, 178, 45), rgb(180, 166, 83));
+    margin-top: 30px; /* Spațiu de jos */
 
     padding: 30px; /* Spațiu interior */
     box-shadow: 1px 4px 8px rgba(57, 49, 12, 0.9); /* Umbră */

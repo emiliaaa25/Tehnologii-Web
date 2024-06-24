@@ -3,6 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="http://localhost/ScreenActorAward/public/css/styles.css">
+    <link rel="stylesheet" href="http://localhost/ScreenActorAward/public/css/actors.css">
     <meta charset="UTF-8">
     <title>Actors</title>
     <link rel="icon" type="image/x-icon" href="http://localhost/ScreenActorAward/public/pictures/icon.jpg">
