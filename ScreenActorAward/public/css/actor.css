@@ -49,7 +49,7 @@
     border: 10px solid rgb(180, 166, 83);
     border-radius: 8px;
     box-shadow: 0 0 10px rgb(180, 166, 83);
-    
+
 }
 
 .actor-image {
@@ -61,8 +61,8 @@
     flex-direction: column; /* Colocăm imaginea și textul într-o coloană */
     color: rgb(150, 136, 53); /* Setăm culoarea textului */
     white-space: normal;  
-     
-    
+
+
 }
 
 .actor-image img {
@@ -212,7 +212,7 @@
     width: 150px;
     text-align: center;
     color: rgb(180, 166, 83);
-    
+
 }
 .filmography-item a {
     color: rgb(180, 166, 83);

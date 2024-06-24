@@ -26,11 +26,7 @@ Universitatea Alexandru Ioan Cuza Facultatea de Informatica
 
 
 ## Revision History
-| Name | Date    | Reason For Changes  | Version   |
-| ---- | ------- | ------------------- | --------- |
-|      |         |                     |           |
-|      |         |                     |           |
-|      |         |                     |           |
+
 
 ## 1. Introduction
 ### 1.1 Scope 
