@@ -70,14 +70,6 @@ class ActorModel {
                 // Obține toate creditele (filmografia completă)
                 $filmographyUrl = "https://api.themoviedb.org/3/person/{$actorId}/combined_credits?language=en-US";
                 $filmographyResponse = $this->getDetails($filmographyUrl);
-                $externalIdsUrl = "https://api.themoviedb.org/3/person/{$actorId}/external_ids?language=en-US";
-                $externalIdsResponse = $this->getDetails($externalIdsUrl);
-
-                // Initializează un vector pentru stocarea ID-urilor externe
-                $externalIds = [
-                    'imdb_id' => isset($externalIdsResponse['imdb_id']) ? $externalIdsResponse['imdb_id'] : null
-                    // Adaugă aici alte ID-uri externe cum ar fi Facebook, Instagram, etc., dacă sunt necesare
-                ];
     
                 // Initialize an empty array to store actor details
                 $actorDetails = [
@@ -143,15 +135,14 @@ class ActorModel {
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function getActorsStartingWith($letter) {
-        $letter = $letter . '%'; // append '%' to the letter
-        $query = "SELECT DISTINCT full_name FROM screen_actor_guild_awards WHERE full_name LIKE :letter";
+    public function getActorsStartingWith($initial) {
+        $query = "SELECT * FROM actors WHERE full_name LIKE :initial";
         $statement = $this->connection->prepare($query);
-        $statement->bindParam(':letter', $letter);
+        $statement->bindValue(':initial', $initial . '%', PDO::PARAM_STR);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
-    }
-    public function getActorByName($name) {
+    }   
+     public function getActorByName($name) {
         $query = "SELECT * FROM screen_actor_guild_awards WHERE full_name = :name";
         $statement = $this->connection->prepare($query);
         $statement->bindParam(':name', $name);
@@ -177,4 +168,20 @@ class ActorModel {
         }
 
     }
+    public function getActorsPaginated($page, $pageSize) {
+        $offset = ($page - 1) * $pageSize;
+        $query = "SELECT * FROM screen_actor_guild_awards LIMIT :offset, :pageSize";
+        $statement = $this->connection->prepare($query);
+        $statement->bindValue(':offset', $offset, PDO::PARAM_INT);
+        $statement->bindValue(':pageSize', $pageSize, PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function getTotalActors() {
+        $query = "SELECT COUNT(*) FROM screen_actor_guild_awards WHERE category LIKE '%ACTOR%'";
+        $statement = $this->connection->query($query);
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        return $result['COUNT(*)'];
+    }
+   
 }

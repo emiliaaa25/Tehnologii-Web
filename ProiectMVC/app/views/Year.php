@@ -48,7 +48,7 @@ if (isset($_GET['year'])) {
         }
     </script>
 </head>
-<body>
+<>
 <header>
     <div class="search-bar" id="searchBar">
         <button class="dissmis" onclick="toggleSearchBar()"><img src="arrow.png" alt=""></button>
@@ -77,10 +77,13 @@ if (isset($_GET['year'])) {
     </div>
 </header>
 <main>
+<div class="containere">
 <div class="filter-buttons">
         <button onclick="filterNominees('movie')">Movies</button>
         <button onclick="filterNominees('tv')">TV Shows</button>
         <button onclick="filterNominees('person')">Actors</button>
+        <button onclick="filterNominees('diagrams')">Diagrams</button>
+
     </div>
     <?php if (isset($yearData) && !empty($yearData['year'])): ?>
         <?php $alignmentClass = 'left-aligned'; ?>
@@ -119,6 +122,7 @@ if (isset($_GET['year'])) {
     <?php else: ?>
         <p>No data available for the specified filter and year.</p>
     <?php endif; ?>
-</main>
+</div>
+    </main>
 </body>
 </html>

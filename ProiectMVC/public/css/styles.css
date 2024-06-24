@@ -2,7 +2,8 @@ body {
   margin: 0;
   padding: 0;
   display: grid;
-background-color: black;}
+background-color: black;
+}
 
 .search-bar{
   position: fixed;
@@ -73,39 +74,6 @@ grid-template-columns: 1fr 1fr;
 align-items: center;
 background-color: rgb(180, 166, 83); 
 background-image: linear-gradient(to bottom right, rgb(100,80,0), rgb(180, 166, 83));
-
-}
-
-.section-2 {
-height: 90dvh;
-background-color: black; 
-}
-
-
-
-.section-3{
-background-color: rgb(180, 166, 83);
-height: 80dvh;
-display: grid;
-grid-template-columns: 1fr 1fr;
-}
-
-.section-3 img{
-width: 100%;
-height: 80dvh;
-}
-
-.scris-section3{
-font-family: monospace;
-display: grid;
-grid-template-rows: 1fr 1fr 1fr 1fr;
-color: white;
-}
-
-.scris-section3 h4{
-text-shadow: 2px 2px 5px rgb(100, 86, 3);
-text-align: center;
-border: 10px black;
 
 }
 
@@ -283,17 +251,18 @@ header{
 
 .actors{
   font-size: 25px;
-  letter-spacing: 15px;
+  letter-spacing: 20px;
   align-items: center;
   text-align: center;
-  
+  grid-template-columns: repeat(5, 1fr);
   margin: 50px;
 }
 
 .actors img{
-  width: 20vw;
+  width: 18vw;
   height: 20vw;
   border-radius: 10%;
+
   border: 5px solid rgb(180, 166, 83);
   box-shadow: 0 0 10px rgb(180, 166, 83);
 }

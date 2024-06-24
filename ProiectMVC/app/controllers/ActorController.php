@@ -50,4 +50,14 @@ class ActorController {
         }
         return json_encode([]);
     }
+
+    public function getActorsPaginated($page, $pageSize) {
+        $actorModel = new ActorModel();
+        return $actorModel->getActorsPaginated($page, $pageSize);
+    }
+
+    public function getTotalActors() {
+        $actorModel = new ActorModel();
+        return $actorModel->getTotalActors();
+    }
 }

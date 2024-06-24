@@ -62,25 +62,3 @@
     background-color: rgba(0, 0, 0, 1);
 }
 
-.button-year {
-    display: block;
-    margin: auto; /* Centrăm butonul pe orizontală */
-    margin-top: 20px; /* Spațiu de sus */
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4CAF50; /* Culoarea de fundal a butonului */
-    color: white; /* Culoarea textului butonului */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Tranziție pentru culoarea de fundal */
-}
-
-.button-year:hover {
-    background-color: #45a049; /* Culoare de fundal la hover */
-}
-
-.center-button {
-    text-align: center; /* Aliniem conținutul la centru */
-    margin-top: 20px; /* Spațiu de sus pentru buton */
-}

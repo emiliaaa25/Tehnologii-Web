@@ -34,7 +34,6 @@
         </div>
     </div>
     </header>
-    <body>
               <div class="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item">
@@ -78,9 +77,7 @@
             <a class="prev" onclick="moveSlides(-1)">&#10094;</a>
             <a class="next" onclick="moveSlides(1)">&#10095;</a>
         </div>
-        <div class="center-button">
-        <button-year onclick="window.location.href='http://localhost/ProiectMVC/app/views/Years.php'" class="button">Go to Years</button>
-        </div>
+        
         <div class="footer">
         </div>
 
