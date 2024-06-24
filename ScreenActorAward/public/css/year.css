@@ -1,0 +1,307 @@
+ 
+ 
+ /* General styling */
+ body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    display: grid;
+}
+
+/* Search bar styling */
+.search-bar {
+    position: fixed;
+    margin: 0;
+    border: 0;
+    right: -300px;
+    height: 100%;
+    width: 180px;
+    z-index: 1;
+    background-color: rgb(180, 166, 83);
+    padding-top: 15vh;
+    transition: right 0.3s ease;
+}
+
+.search-bar.show {
+    right: 0;
+}
+
+.search-barr {
+    width: 100%;
+    height: 15%;
+    text-align: center;
+    margin: 0;
+    border: 0;
+    text-decoration: none;
+    z-index: 0;
+    position: static;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: rgb(180, 166, 83);
+    color: black;
+    font-size: large;
+}
+
+.search-barr:hover {
+    background-color: rgb(150, 136, 53);
+}
+
+.dissmis {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.dissmis img {
+    width: 35px;
+    height: auto;
+    margin-left: 70px;
+}
+
+.dismiss:hover,
+.dismiss:focus {
+    background: #555;
+    color: #fff;
+}
+header{
+    margin-bottom: 60px;
+    display: grid;
+  }
+  
+  .section-1, .section-2 {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    }
+    
+
+/* Section 1 (Header) styling */
+.section-1 {
+    height: 10vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    background-color: rgb(180, 166, 83);
+    background-image: linear-gradient(to bottom right, rgb(100, 80, 0), rgb(180, 166, 83));
+}
+
+.title {
+    margin-left: 10px;
+    font-size: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+  
+
+  
+.button-group a{
+    text-decoration: none;
+    color: white;
+  }
+
+.button-group {
+    display: flex;
+    margin-right: 0px;
+}
+
+.button-group .button {
+    background-color: rgb(9, 8, 5);
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 14px;
+    margin: 0 10px;
+    opacity: 0.6;
+    transition: 0.3s;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.search-container {
+    position: relative; 
+    margin-left: 10px;
+  }
+  
+  .search-container input[type=text] {
+    background-color: rgb(93, 80, 41);
+    padding: 15px 30px 15px 30px;
+    border: none;
+    font-size: 16px;
+  }
+  
+  .search-container button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute; 
+    right: 10px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+  }
+  
+  
+  
+  
+
+.button-group .button img {
+    width: 25px;
+    height: auto;
+}
+
+.button-group .button:hover {
+    opacity: 1;
+}
+
+.container {
+    display: flex;
+    margin: 40px 0;
+    background-color: black;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgb(180, 166, 83);
+    overflow: hidden;
+    height: 600px;
+    width: 1400px;
+    padding: 10px;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left-aligned .left-section {
+    order: 1;
+}
+
+.left-aligned .right-section {
+    order: 2;
+}
+
+.right-aligned .left-section {
+    order: 2;
+}
+
+.right-aligned .right-section {
+    order: 1;
+}
+
+.left-section, .right-section {
+    width: 50%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(70%);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.text-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    max-width: 90%;
+}
+
+.text-overlay h1 {
+    font-size: 2em;
+    margin: 0 0 10px;
+}
+
+.performance-text {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.view-cast {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.right-section h3 {
+    margin: 0;
+    color: white; /* Schimbat la alb */
+}
+
+.right-section h2 {
+    margin: 10px 0;
+    font-size: 2em; /* Font mai mare */
+    color: white; /* Schimbat la alb */
+}
+
+.right-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.right-section ul li {
+    margin: 10px 0; /* Spațiu între elemente */
+    font-size: 1.5em; /* Font mai mare */
+    color: white; /* Schimbat la alb */
+}
+
+.right-section ul li.recipient {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    background-color:rgb(180, 166, 83); /* Fundal auriu */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.right-section ul li button {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+}
+
+.recipient {
+    display: flex;
+    align-items: center;
+    background-color: #B8860B; /* Auriu pentru câștigător */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.recipient .trophy {
+    width: 30px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.recipient button {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+}

@@ -1,0 +1,100 @@
+.last-season-container {
+    max-width: 1400px;
+    max-height: 250px;
+    padding: 20px;
+    background-color: black;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgb(180, 166, 83);
+    display: flex;
+    padding-bottom: 20px;
+    margin-bottom: 15px;
+    overflow-y: auto;
+}
+.last-season-container::-webkit-scrollbar {
+    height: 9px;
+}
+.last-season-container::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.3); 
+    border-radius: 7px; 
+}
+.last-season-container::-webkit-scrollbar-thumb {
+    background: rgb(180, 166, 83);
+    border-radius: 6px;
+}
+.last-season-container::-webkit-scrollbar-thumb:hover {
+    background: rgb(150, 136, 53);
+}
+.season-poster {
+    flex: 0 0 auto; /* Fără flexibilitate pentru a păstra lățimea posterului */
+}
+
+.season-poster img {
+    max-width: 100%;
+    height: 100%;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.season-details {
+    flex: 1; /* Întindere flexibilă a detaliilor */
+    margin-left: 0;
+}
+
+.season-details h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(180, 166, 83);
+    margin-bottom: 10px;
+    margin-left: 20px;
+
+}
+.season-details a {
+    color: rgb(180, 166, 83);
+    text-decoration: none;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.season-details p {
+    margin-bottom: 10px;
+    color: rgb(180, 166, 83);
+    margin-left: 20px;    
+    font-size: 15px;
+}
+
+.season-stats {
+    margin-bottom: 10px;
+    margin-left: 0;
+
+}
+
+.crew-guest-stars {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.crew-guest-stars h2 {
+    margin-bottom: 10px;
+}
+
+.member-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.member-container img {
+    width: 100px; /* Ajustează dimensiunea imaginilor după preferințe */
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px; /* Rotunjirea marginilor imaginii */
+    margin-right: 20px; /* Spațiu între imagine și nume */
+}
+
+.member-details {
+    flex: 1;
+}
+
+.member-details p {
+    margin: 5px 0;
+}
