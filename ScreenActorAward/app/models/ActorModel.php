@@ -69,15 +69,7 @@ class ActorModel {
                 $creditsResponse = $this->getDetails($creditsUrl);
                 // Obține toate creditele (filmografia completă)
                 $filmographyUrl = "https://api.themoviedb.org/3/person/{$actorId}/combined_credits?language=en-US";
-                $filmographyResponse = $this->getDetails($filmographyUrl);
-                $externalIdsUrl = "https://api.themoviedb.org/3/person/{$actorId}/external_ids?language=en-US";
-                $externalIdsResponse = $this->getDetails($externalIdsUrl);
-
-                // Initializează un vector pentru stocarea ID-urilor externe
-                $externalIds = [
-                    'imdb_id' => isset($externalIdsResponse['imdb_id']) ? $externalIdsResponse['imdb_id'] : null
-                    // Adaugă aici alte ID-uri externe cum ar fi Facebook, Instagram, etc., dacă sunt necesare
-                ];
+                $filmographyResponse = $this->getDetails($filmographyUrl);           
     
                 // Initialize an empty array to store actor details
                 $actorDetails = [

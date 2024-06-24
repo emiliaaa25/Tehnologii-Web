@@ -1,54 +1,27 @@
-.ani-poze-sec1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.ani-section1, .ani-poze-sec1{
+  margin-top: 15dvh;
+  font-family: monospace;
+  text-align: center;
+  color: rgb(180, 166, 83);
 }
 
-.ani-poze-sec1 img {
-  width: 300px; /* Lățime fixă pentru imagini */
-  height: auto; /* Menține proporțiile imaginii */
+.ani-section1 h1{
+  font-size: 50px;
+
+}
+
+.ani-poze-sec1{
+  display: inline-block;
+}
+
+.ani-poze-sec1 img{
+  align-self: center;
+  width: 30vw;
   border: 2px solid rgb(180, 166, 83);
   box-shadow: 0 0 10px rgb(180, 166, 83);
-  margin: 10px auto; /* Margin pentru a separa imaginile */
+  margin: 0px 60px 60px 60px;
 }
 
-.ani-section1 h1 {
-  font-size: 50px;
-}
-
-.ani-poze-sec1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.year-container {
-  margin-bottom: 30px;
-}
-
-.year-container h2 {
-  margin-bottom: 10px;
-}
-
-
-.ani-poze-sec1 img:hover {
+.ani-poze-sec1 :hover{
   opacity: 0.5;
-}
-
-@media (max-width: 1100px) {
-  .ani-poze-sec1 img {
-      width: 40vw;
-  }
-}
-
-@media (max-width: 800px) {
-  .ani-poze-sec1 img {
-      width: 50vw;
-  }
-}
-
-@media (max-width: 600px) {
-  .ani-poze-sec1 img {
-      width: 60vw;
-  }
 }
