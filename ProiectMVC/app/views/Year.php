@@ -81,8 +81,6 @@ if (isset($_GET['year'])) {
         <button onclick="filterNominees('movie')">Movies</button>
         <button onclick="filterNominees('tv')">TV Shows</button>
         <button onclick="filterNominees('person')">Actors</button>
-        <button onclick="filterNominees('diagrams')">Diagrams</button>
-
     </div>
     <?php if (isset($yearData) && !empty($yearData['year'])): ?>
         <?php $alignmentClass = 'left-aligned'; ?>
