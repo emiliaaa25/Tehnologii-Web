@@ -1,0 +1,87 @@
+.carousel {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-color: rgb(180, 166, 83); /* Fundal chenar */
+    background-image: linear-gradient(to bottom right, rgb(211, 178, 45), rgb(180, 166, 83));
+    margin-top: 30px; /* Spațiu de jos */
+
+    padding: 30px; /* Spațiu interior */
+    box-shadow: 1px 4px 8px rgba(57, 49, 12, 0.9); /* Umbră */
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Tranziție dinamică */
+    justify-content: flex-start; /* Afișăm de la stânga la dreapta */
+}
+
+.carousel-item {
+    flex: 1 0 30%; /* Afișare 3 elemente simultan */
+    box-sizing: border-box;
+    padding: 10px;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Tranziții dinamice */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto; /* Asigură scalarea corectă a imaginilor */
+    max-height: 300px; /* Ajustează înălțimea maximă pentru imaginile tale */
+    border: 2px solid #bbb;
+    box-shadow: 0 0 10px #bbb;
+    border-radius: 5px; /* Colțuri rotunjite imagini */
+}
+
+.carousel-item:hover {
+    transform: scale(1.05); /* Mărire la hover */
+    opacity: 0.9; /* Opacitate redusă la hover */
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+.button-year {
+    display: block;
+    margin: auto; /* Centrăm butonul pe orizontală */
+    margin-top: 20px; /* Spațiu de sus */
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50; /* Culoarea de fundal a butonului */
+    color: white; /* Culoarea textului butonului */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Tranziție pentru culoarea de fundal */
+}
+
+.button-year:hover {
+    background-color: #45a049; /* Culoare de fundal la hover */
+}
+
+.center-button {
+    text-align: center; /* Aliniem conținutul la centru */
+    margin-top: 20px; /* Spațiu de sus pentru buton */
+}

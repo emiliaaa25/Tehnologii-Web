@@ -1,0 +1,152 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: grid;
+background-color: black;
+}
+
+.search-bar{
+  position: fixed;
+  margin: 0;
+  border: 0;
+  right: -300px;
+  height: 100%;
+  width: 180px;
+  z-index: 1;
+  background-color: rgb(180, 166, 83);
+  padding-top:15dvh;
+  transition: right 0.3s ease;
+
+}
+
+button.search-barr{
+width: 100%;
+height: 15%;
+text-align: center;
+margin: 0;
+border: 0;
+text-decoration: none;
+z-index: 0;
+position: static;
+cursor: pointer;
+transition: 0.3s;
+background-color: rgb(180, 166, 83);
+color: black;
+font-size: large;
+}
+
+button.search-barr:hover{
+background-color: rgb(150, 136, 53);
+}
+
+.search-bar.show{
+  right: 0;
+}
+.dissmis {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.dissmis img {
+  width: 35px;
+  height: auto;
+  margin-left: 70px;
+
+}
+
+.dismiss:hover,
+.dismiss:focus {
+  background: #555;
+  color: #fff;
+}
+
+.section-1 {
+height: 10vh;
+display: grid;
+grid-template-columns: 1fr 1fr;
+align-items: center;
+background-color: rgb(180, 166, 83); 
+background-image: linear-gradient(to bottom right, rgb(205, 171, 35), rgb(180, 166, 83));
+
+}
+
+.button-group {
+  display: flex;
+  margin-right: 0px;
+}
+
+.button-group a{
+  text-decoration: none;
+  color: white;
+}
+
+.button {
+  background-color: rgb(9, 8, 5);
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 14px;
+  margin: 0 10px;
+  opacity: 0.6;
+  transition: 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button img{
+  width: 25px;
+  height: auto;
+}
+.border{
+  padding: 5px 25px;
+}
+
+.button:hover {
+  opacity: 1;
+}
+
+.search-container {
+  position: relative; 
+  margin-left: 10px;
+}
+
+.search-container input[type=text] {
+  background-color: rgb(93, 80, 41);
+  padding: 15px 30px 15px 30px;
+  border: none;
+  font-size: 16px;
+}
+
+.search-container button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute; 
+  right: 10px; 
+  top: 50%; 
+  transform: translateY(-50%); 
+}
+
+.title{
+  margin-left: 10px;
+  font-size: 30px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+header{
+  margin-bottom: 60px;
+  display: grid;
+}
+
+.footer{
+  background-color: rgb(180, 166, 83);
+  height: 150px;
+  background-image: linear-gradient(to bottom, rgb(0,0,0), rgb(180, 166, 83));
+  margin-top: 60px;
+  bottom: 0px;
+}
+

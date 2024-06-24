@@ -1,0 +1,27 @@
+.ani-section1, .ani-poze-sec1{
+  margin-top: 15dvh;
+  font-family: monospace;
+  text-align: center;
+  color: rgb(180, 166, 83);
+}
+
+.ani-section1 h1{
+  font-size: 50px;
+
+}
+
+.ani-poze-sec1{
+  display: inline-block;
+}
+
+.ani-poze-sec1 img{
+  align-self: center;
+  width: 30vw;
+  border: 2px solid rgb(180, 166, 83);
+  box-shadow: 0 0 10px rgb(180, 166, 83);
+  margin: 0px 60px 60px 60px;
+}
+
+.ani-poze-sec1 :hover{
+  opacity: 0.5;
+}
