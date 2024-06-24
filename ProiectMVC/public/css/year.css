@@ -74,16 +74,6 @@ main {
     margin: 0;
 }
 
-.view-cast {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 5px 10px;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
 .right-section h3 {
     margin: 0;
     color: white; /* Schimbat la alb */
@@ -148,4 +138,24 @@ main {
     font: inherit;
     cursor: pointer;
     padding: 0;
+}
+.filter-buttons {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.filter-buttons button {
+    background-color:  #B8860B;
+    color: white;
+    border: none;
+    padding: 20px 20px;
+    margin: 10px;
+    cursor: pointer;
+    width: 200px; /* Setează lățimea */
+    height: 100px; /* Setează înălțimea */
+    font-size: 18px; /* Mărește fontul */
+}
+
+.filter-buttons button:hover {
+    background-color:  rgb(155, 137, 38);
 }

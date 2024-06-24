@@ -5,13 +5,24 @@ $yearRaw = substr($yearRaw, 0, 4);
 
 if (isset($_GET['year'])) {
     $year = $_GET['year'];
-    
+    $filter = isset($_GET['filter']) ? $_GET['filter'] : 'movie';  // Default filter type: 'movie'
     $yearController = new YearController();
 
     // Fetch categories and nominees for the given year
     $yearJson = $yearController->getYearDetails(['year' => $year]);
     $yearData = json_decode($yearJson, true);
-
+ // Filter nominees based on the selected filter
+    if (!empty($yearData['year'])) {
+        foreach ($yearData['year'] as $category => &$categoryData) {
+            $categoryData['nominees'] = array_filter($categoryData['nominees'], function($nominee) use ($filter) {
+                return $nominee['type'] === $filter;
+            });
+        }
+        // Remove categories that have no nominees after filtering
+        $yearData['year'] = array_filter($yearData['year'], function($categoryData) {
+            return !empty($categoryData['nominees']);
+        });
+    }
 } else {
     $error = 'No year specified.';
 }
@@ -30,6 +41,10 @@ if (isset($_GET['year'])) {
             if (imageElement) {
                 imageElement.src = nomineeImageUrl;
             }
+        }
+        function filterNominees(filter) {
+            const year = "<?php echo $year; ?>";
+            window.location.href = `?year=${year}&filter=${filter}`;
         }
     </script>
 </head>
@@ -62,6 +77,13 @@ if (isset($_GET['year'])) {
     </div>
 </header>
 <main>
+<div class="filter-buttons">
+        <button onclick="filterNominees('movie')">Movies</button>
+        <button onclick="filterNominees('tv')">TV Shows</button>
+        <button onclick="filterNominees('person')">Actors</button>
+        <button onclick="filterNominees('diagrams')">Diagrams</button>
+
+    </div>
     <?php if (isset($yearData) && !empty($yearData['year'])): ?>
         <?php $alignmentClass = 'left-aligned'; ?>
         <?php foreach ($yearData['year'] as $category => $categoryData): ?>
@@ -71,7 +93,6 @@ if (isset($_GET['year'])) {
                     <div class="text-overlay">
                         <p class="performance-text">Outstanding Performance by a</p>
                         <h1><?php echo htmlspecialchars($category); ?></h1>
-                        <a href="#" class="view-cast">View Cast</a>
                     </div>
                 </div>
                 <div class="right-section">
@@ -98,7 +119,7 @@ if (isset($_GET['year'])) {
             <?php $alignmentClass = ($alignmentClass === 'left-aligned') ? 'right-aligned' : 'left-aligned'; ?>
         <?php endforeach; ?>
     <?php else: ?>
-        <p>No data available for the specified year.</p>
+        <p>No data available for the specified filter and year.</p>
     <?php endif; ?>
 </main>
 </body>

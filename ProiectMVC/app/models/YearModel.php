@@ -94,13 +94,20 @@ class YearModel {
             ];
         }
 
-        if ($fullName !== NULL && $fullName !== '') {
+        if ($fullName !== NULL && $fullName !== '' && (stripos($category, 'ENSEMBLE') === false) && (stripos($category, 'CAST') === false)) {
             $type = 'person';
-        } elseif (stripos($category, 'series') !== false) {
+        } else if ((stripos($category, 'ENSEMBLE') !== false) && $fullName === '') {
             $type = 'tv';
-        } else {
+        } else if ((stripos($category, 'CAST') !== false )&& $fullName === '') {
             $type = 'movie';
+        } else {
+            $type = 'not important';
         }
+
+        if ($type === 'not important') {
+            continue; 
+        }
+
 
         if ($categories[$category]['type'] === null) {
             $categories[$category]['type'] = $type;
