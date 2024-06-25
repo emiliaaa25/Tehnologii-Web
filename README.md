@@ -4,6 +4,8 @@ Galatanu Emilia and Popoiu Andra
 
 Universitatea Alexandru Ioan Cuza Facultatea de Informatica
 
+Video demonstrativ: https://youtu.be/NhdxSL2w1kc
+
 ## Cuprins
 
 1. [Introducere](#1-introducere)
